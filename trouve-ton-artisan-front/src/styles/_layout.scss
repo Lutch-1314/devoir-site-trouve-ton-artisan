@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+    
+  .logo {
+    width: 110px;
+    height: auto;
+  }
+
+  @media (min-width: 768px) {
+    .logo {
+      width: 350px;
+    }
+  }
+}

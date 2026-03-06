@@ -1,14 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 
-import './App.css'
-
-import Home from './pages/Home'
-import ArtisansList from './pages/ArtisansList'
-import ArtisanProfile from './pages/ArtisanProfile'
-import BeingBuilt from './pages/BeingBuilt'
-import NotFound from './pages/NotFound'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Home from "./pages/Home";
+import ArtisansList from "./pages/ArtisansList";
+import ArtisanProfile from "./pages/ArtisanProfile";
+import BeingBuilt from "./pages/BeingBuilt";
+import NotFound from "./pages/NotFound";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,7 +23,7 @@ function App() {
 
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;

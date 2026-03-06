@@ -23,7 +23,7 @@ router.get('/top', async (req, res) => {
       where: { top: true },
 
       // 🔹 ATTRIBUTES = colonnes de la table Artisan
-      attributes: ['nom', 'note'],
+      attributes: ['id_artisan','nom', 'note'],
 
       // 🔹 INCLUDE = relations (autres tables liées)
       include: [
@@ -43,6 +43,7 @@ router.get('/top', async (req, res) => {
     // On formate la réponse pour le frontend
     res.json(
       artisans.map(a => ({
+        id_artisan: a.id_artisan,
         nom: a.nom,
         note: a.note,
         specialite: a.Specialite.nom,
