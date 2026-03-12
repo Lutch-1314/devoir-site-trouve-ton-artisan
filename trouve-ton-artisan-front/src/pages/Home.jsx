@@ -2,16 +2,19 @@ import TopArtisans from "../components/TopArtisans";
 
 const Home = () => {
   return (
-    <main>
+    <main className="main">
       <section>
-        <div className="container">
+        <div className="container main-section">
           <h1>Comment trouver mon artisan ?</h1>
-          <p>
-            1. Choisir la catégorie d'artisanat dans le menu.
-            2. Choisir un artisan.
-            3. Le contacter via le formulaire de contact.
-            4. Une réponse sera apportée sous 48h.
-          </p>
+
+          <div className="section-divider"></div>
+
+          <ol className="steps">
+            <li>Choisir la catégorie d'artisanat dans le menu.</li>
+            <li>Choisir un artisan.</li>
+            <li>Le contacter via le formulaire de contact.</li>
+            <li>Une réponse sera apportée sous 48h.</li>
+          </ol>
         </div>
       </section>
       

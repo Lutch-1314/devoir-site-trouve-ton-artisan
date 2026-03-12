@@ -33,7 +33,7 @@ const TopArtisans = () => {
 
       <div className="container">
 
-        <h2>Les 3 artisans du mois</h2>
+        <h2 className="title-deco green">Les 3 artisans du mois</h2>
 
         <div id="artisanCarousel" className="carousel slide">
 
@@ -46,7 +46,7 @@ const TopArtisans = () => {
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
 
-                <div className="artisan-card text-center">
+                <div className="artisan-card">
 
                   {/* compteur */}
                   <p className="artisan-position">

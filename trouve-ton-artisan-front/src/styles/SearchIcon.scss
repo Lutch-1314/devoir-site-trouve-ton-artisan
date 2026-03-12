@@ -22,3 +22,14 @@
     }
   }
 }
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-input {
+  width: 220px;
+}
+
