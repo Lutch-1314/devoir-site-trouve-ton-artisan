@@ -3,8 +3,8 @@ import TopArtisans from "../components/TopArtisans";
 const Home = () => {
   return (
     <main className="main">
-      <section>
-        <div className="container main-section">
+      <section className="main-section">
+        <div className="container container-fluid">
           <h1>Comment trouver mon artisan ?</h1>
 
           <div className="section-divider"></div>

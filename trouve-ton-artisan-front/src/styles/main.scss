@@ -1,8 +1,12 @@
-@import "variables";
-@import "layout";
-@import "home";
-@import "topArtisans";
-@import "bootstrap/scss/bootstrap";
+@use "bootstrap/scss/bootstrap";
+
+@use "variables" as *;
+@use "layout";
+@use "home";
+@use "header";
+@use "footer";
+@use "searchIcon";
+@use "topArtisans";
 
 @font-face {
   font-family: "Graphik";
@@ -31,7 +35,7 @@
   font-weight: 400;
 }
 
-.container {
+.section {
   padding : 1.5rem; 
   
   @media (min-width: 768px) {

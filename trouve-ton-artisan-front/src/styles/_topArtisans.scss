@@ -1,5 +1,14 @@
+@use "variables" as *;
+
 .artisan-position {
     font-size: 1.25rem;
     font-weight: 700;
     color: $blue;
+}
+
+.carousel-inner,
+.carousel-item,
+.artisan-card {
+  max-width: 100%;
+  overflow-x: hidden;
 }
