@@ -1,0 +1,18 @@
+@use "variables" as *;
+
+.btn-artisan {
+  display: inline-flex;
+  width: fit-content;
+  padding: 8px 35px 10px;
+  border-radius: 999px;
+  border: 1.5px solid $blue;
+  background-color: $white;
+  color: $blue;
+  text-decoration: none;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $dark-blue;
+    border-color: $dark-blue;
+  }
+}

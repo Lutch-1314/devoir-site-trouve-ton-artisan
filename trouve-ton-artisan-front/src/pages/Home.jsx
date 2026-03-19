@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <main className="main">
       <section className="main-section">
-        <div className="make-container">
+        <div className="default-container">
           <h1>Comment trouver mon artisan ?</h1>
 
           <div className="section-divider"></div>

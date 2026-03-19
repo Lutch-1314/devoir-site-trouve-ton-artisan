@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 import { getTopArtisans } from "../services/api";
+import artisanIcon from "../assets/icons/artisan.svg";
+import locationIcon from "../assets/icons/location.svg";
+import arrowRight from "../assets/icons/arrow-right.svg";
+import arrowLeft from "../assets/icons/arrow-left.svg";
+import Rating from "./Rating";
+import Button from "./Button";
 
 const TopArtisans = () => {
 
@@ -31,7 +37,7 @@ const TopArtisans = () => {
   return (
     <section className="top-artisans">
 
-      <div className="container">
+      <div className="default-container">
 
         <h2 className="title-deco green">Les 3 artisans du mois</h2>
 
@@ -45,52 +51,68 @@ const TopArtisans = () => {
                 key={artisan.id_artisan}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
-
                 <div className="artisan-card">
 
-                  {/* compteur */}
-                  <p className="artisan-position">
+                  <p className="artisan-position h3 fw-bold">
                     {index + 1}/{artisans.length}
                   </p>
 
                   <h3>{artisan.nom}</h3>
                   
-                  <p>{artisan.specialite}</p>
-                  <p>{artisan.ville}</p>
-                  <p>⭐ {artisan.note}</p>
+                  <div className="artisan-infos">
+                    <span className="artisan-speciality">
+                      <img className="artisan-icon"
+                          src={artisanIcon}
+                          alt="Artisan"
+                      />
+                      {artisan.specialite}
+                    </span>
+                    
+                    <span className="artisan-location">
+                      <img className="location-icon"
+                          src={locationIcon}
+                          alt="Localisation"
+                      />
+                      {artisan.ville}
+                    </span>
+                    
+                    <div className="rating-wrapper">
+                      <span className="rating-value">{artisan.note}</span>
+                      <Rating value={artisan.note} />
+                    </div>
+                  </div>
+
+                  <Button link={`/artisans/${artisan.id_artisan}`}>
+                    Voir la fiche
+                  </Button>
 
                 </div>
-
+                
               </div>
-
+              
             ))}
+            <div className="carousel-controls">   
+                    <button
+                      className="carousel-control-prev custom-carousel-btn"
+                      type="button"
+                      data-bs-target="#artisanCarousel"
+                      data-bs-slide="prev"
+                    >
+                      <img src={arrowLeft} alt="Précédent" />
+                    </button>
 
+                    <button
+                      className="carousel-control-next custom-carousel-btn"
+                      type="button"
+                      data-bs-target="#artisanCarousel"
+                      data-bs-slide="next"
+                    >
+                      <img src={arrowRight} alt="Suivant" />
+                    </button>
+                  </div>
           </div>
-
-          {/* bouton précédent */}
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#artisanCarousel"
-            data-bs-slide="prev"
-          >
-            <span className="carousel-control-prev-icon"></span>
-          </button>
-
-          {/* bouton suivant */}
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#artisanCarousel"
-            data-bs-slide="next"
-          >
-            <span className="carousel-control-next-icon"></span>
-          </button>
-
         </div>
-
       </div>
-
     </section>
   );
 };

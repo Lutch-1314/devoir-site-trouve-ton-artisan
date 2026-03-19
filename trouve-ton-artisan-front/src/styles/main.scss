@@ -7,6 +7,9 @@
 @use "footer";
 @use "searchIcon";
 @use "topArtisans";
+@use "rating";
+@use "star";
+@use "button";
 
 @font-face {
   font-family: "Graphik";
@@ -29,21 +32,19 @@
   font-style: normal;
 }
 
-* {
+body {
   margin: 0;
   font-family: "Graphik", sans-serif;
   font-weight: 400;
-}
+  font-size: 1rem;
+  color: $grey;
 
-.section {
-  padding : 1.5rem; 
-  
   @media (min-width: $tablet) {
-    padding: 2.5rem;
+    font-size: 1.25rem;
   }
 
   @media (min-width: $desktop) {
-    padding: 5rem;
+    font-size: 1.375rem;
   }
 }
 
