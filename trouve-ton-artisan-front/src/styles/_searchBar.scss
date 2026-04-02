@@ -4,15 +4,27 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   background-color: transparent;
   transition: all 0.2s;
   cursor: pointer;
 
+  @media (min-width: $tablet) {
+    width: 60px;
+    height: 60px;
+  }
+
   .search-icon {
     color: $blue;
+    width: 24px;
+    height: 24px;
+
+    @media (min-width: $tablet) {
+      width: 40px;
+      height: 40px;
+    }
   }
 
   &:hover {
@@ -31,5 +43,14 @@
 
 .search-input {
   width: 220px;
+  border: none;
 }
 
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 2px 20px;
+  border-right: 1px solid $blue;
+  border-bottom: 1px solid $blue;
+}

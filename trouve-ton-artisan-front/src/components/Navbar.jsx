@@ -3,6 +3,8 @@ import SearchBar from "./SearchBar";
 import MenuButton from "./MenuButton";
 
 const Navbar = () => {
+  const categories = ["Bâtiment", "Services", "Fabrication", "Alimentation"];
+
   return (
     <nav className="navbar custom-navbar">
 
@@ -19,21 +21,22 @@ const Navbar = () => {
 
       {/* ligne menu desktop */}
       <div className="desktop-menu d-none d-lg-block">
-        <ul className="navbar-nav flex-row">
-                  <li className="nav-item">
-                    <NavLink className="p-2" to="/artisans?categorie=Bâtiment">Bâtiment</NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink className="p-2" to="/artisans?categorie=Services">Services</NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink className="p-2" to="/artisans?categorie=Fabrication">Fabrication</NavLink>
-                  </li>
-                  <li className="nav-item">
-                    <NavLink className="p-2" to="/artisans?categorie=Alimentation">Alimentation</NavLink>
-                  </li>
-                </ul>
-              </div>
+        <ul className="navbar-nav flex-row align-items-center">
+          {categories.map((cat, index) => (
+            <li className="nav-item d-flex align-items-center" key={cat}>
+              <NavLink className="p-4" to={`/artisans?categorie=${cat}`}>
+                {cat}
+              </NavLink>
+
+              {/* séparateur sauf dernier */}
+              {index !== categories.length - 1 && (
+                <span className="separator"></span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </nav>
   );
 };

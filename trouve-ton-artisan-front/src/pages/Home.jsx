@@ -3,7 +3,7 @@ import TopArtisans from "../components/TopArtisans";
 const Home = () => {
   return (
     <main className="main">
-      <section className="main-section">
+      <section className="section main-section">
         <div className="default-container">
           <h1>Comment trouver mon artisan ?</h1>
 

@@ -35,7 +35,7 @@ const TopArtisans = () => {
 
 
   return (
-    <section className="top-artisans">
+    <section className="section top-artisans">
 
       <div className="default-container">
 
@@ -91,9 +91,11 @@ const TopArtisans = () => {
               </div>
               
             ))}
-            <div className="carousel-controls">   
+            
+          </div>
+          <div className="carousel-controls">   
                     <button
-                      className="carousel-control-prev custom-carousel-btn"
+                      className="custom-carousel-btn"
                       type="button"
                       data-bs-target="#artisanCarousel"
                       data-bs-slide="prev"
@@ -102,7 +104,7 @@ const TopArtisans = () => {
                     </button>
 
                     <button
-                      className="carousel-control-next custom-carousel-btn"
+                      className="custom-carousel-btn"
                       type="button"
                       data-bs-target="#artisanCarousel"
                       data-bs-slide="next"
@@ -110,7 +112,6 @@ const TopArtisans = () => {
                       <img src={arrowRight} alt="Suivant" />
                     </button>
                   </div>
-          </div>
         </div>
       </div>
     </section>

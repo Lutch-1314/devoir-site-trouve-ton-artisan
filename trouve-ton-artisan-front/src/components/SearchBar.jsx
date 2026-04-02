@@ -1,20 +1,27 @@
 import SearchIcon from "./SearchIcon";
-import "../styles/_searchIcon.scss";
+import "../styles/_searchBar.scss";
 
 const SearchBar = () => {
   return (
     <div className="search-bar">
+      <div className="search-input-wrapper d-none d-lg-flex">
 
-      {/* input visible seulement sur desktop */}
-      <input
-        type="text"
-        placeholder="Rechercher"
-        className="search-input d-none d-lg-block"
-      />
+        <input
+          type="text"
+          placeholder="Rechercher"
+          className="search-input"
+        />
 
-      {/* icône toujours visible */}
-      <SearchIcon />
+        <div className="search-icon-container">
+          <SearchIcon />
+        </div>
 
+      </div>
+
+      {/* icône seule en mobile */}
+      <div className="d-lg-none">
+        <SearchIcon />
+      </div>
     </div>
   );
 };

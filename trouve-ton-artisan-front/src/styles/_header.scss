@@ -4,51 +4,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
-  padding: 16px;
+  min-height: 96px;
   overflow: visible;
     
   .logo {
-    width: auto;
-    height: 110px;
+    width: clamp(200px, 25vw, 400px);
+    height: auto;
   }
-}
-
-.menu {
-  &-action {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 1rem;  
-  }
-
-  &-text {
-        display: block;
-        margin-top: 0.2rem;
-        font-size: 0.7rem;
-        color: $blue;
-        text-align: center;
-      }
-
-  &-icon {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-.custom-navbar {
-  display: flex;
-  flex-direction: column;
-}
-
-.desktop-search {
-  margin-bottom: 8px;
-}
-
-.desktop-menu .navbar-nav {
-  gap: 20px;
 }

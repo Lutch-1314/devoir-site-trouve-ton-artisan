@@ -5,7 +5,8 @@
 @use "home";
 @use "header";
 @use "footer";
-@use "searchIcon";
+@use "searchBar";
+@use "navbar";
 @use "topArtisans";
 @use "rating";
 @use "star";
@@ -36,16 +37,8 @@ body {
   margin: 0;
   font-family: "Graphik", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: clamp(1rem, 2.5vw, 1.375rem);
   color: $grey;
-
-  @media (min-width: $tablet) {
-    font-size: 1.25rem;
-  }
-
-  @media (min-width: $desktop) {
-    font-size: 1.375rem;
-  }
 }
 
 h1, h2 {

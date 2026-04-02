@@ -1,9 +1,7 @@
-const SearchIcon = ({ size = 30 }) => {
+const SearchIcon = () => {
   return (
     <div className="search-icon-wrapper">
       <svg
-        width={size}
-        height={size}
         viewBox="0 0 18 18"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

@@ -3,9 +3,9 @@ import PhoneIcon from "./PhoneIcon";
 
 const Footer = () => {
   return (
-    <footer className="footer ">
+    <footer className="footer section">
 
-      <div className="container">
+      <div className="default-container">
 
         <div className="row justify-content-center">
           <div className="col-auto">

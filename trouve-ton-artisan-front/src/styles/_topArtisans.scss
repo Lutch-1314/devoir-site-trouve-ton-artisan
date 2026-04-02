@@ -3,15 +3,7 @@
 .artisan-card {
   display: flex;
   flex-direction: column;
-  gap: $mob-gap;
-
-  @media (min-width: $tablet) {
-    gap: $tab-gap;
-  }
-
-  @media (min-width: $desktop) {
-    gap: $desk-gap;
-  }
+  gap: $gap-fluid;
 }
 
 .artisan-position {
@@ -20,15 +12,7 @@
 
 .carousel-inner {
   border-left: 1px solid $blue;
-  padding-left: $mob-container-padding;
-
-  @media (min-width: $tablet) {
-    padding: $tab-container-padding;
-  }
-
-  @media (min-width: $desktop) {
-    padding: $desk-container-padding;
-  }
+  padding-left: $padding-fluid;
 }
 
 .carousel-inner,
@@ -67,14 +51,13 @@
 
   @media (min-width: $desktop) {
     justify-content: center;
-    margin: 60px 0 0 0;
+    margin: 40px 0 0 0;
     width: 100%;
     gap: 80px;
   }
 }
 
 .custom-carousel-btn {
-  position: static;
   width: 40px;
   height: 40px;
   border-radius: 50%;
