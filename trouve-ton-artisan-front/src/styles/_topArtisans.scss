@@ -12,7 +12,7 @@
 
 .carousel-inner {
   border-left: 1px solid $blue;
-  padding-left: $padding-fluid;
+  padding: $padding-fluid;
 }
 
 .carousel-inner,
@@ -44,16 +44,15 @@
 }
 
 .carousel-controls {
-  
   display: flex;
   gap: 26px;
   margin: 74px 0 50px 24px;
 
   @media (min-width: $desktop) {
-    justify-content: center;
-    margin: 40px 0 0 0;
+    margin: 0;
+    padding:$padding-fluid;
     width: 100%;
-    gap: 80px;
+    gap: 60px;
   }
 }
 
@@ -98,7 +97,8 @@
   }
 
   @media (min-width: $desktop) {
-    gap: 170px;
     flex-direction: row;
+    justify-content: space-between;
+    max-width: 1000px;
   }
 }
