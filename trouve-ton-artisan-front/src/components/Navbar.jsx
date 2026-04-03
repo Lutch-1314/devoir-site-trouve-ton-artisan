@@ -1,9 +1,24 @@
 import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
 import SearchBar from "./SearchBar";
 import MenuButton from "./MenuButton";
+import { getCategories } from "../services/api";
 
 const Navbar = () => {
-  const categories = ["Bâtiment", "Services", "Fabrication", "Alimentation"];
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+      const categoriesData = await getCategories();
+      setCategories(categoriesData);
+      } catch (err) {
+        console.error("Erreur lors de la récupération des catégories :", err);
+      }
+    };
+
+    fetchCategories();
+  }, []);
 
   return (
     <nav className="navbar custom-navbar">
@@ -23,9 +38,9 @@ const Navbar = () => {
       <div className="desktop-menu d-none d-lg-block">
         <ul className="navbar-nav flex-row align-items-center">
           {categories.map((cat, index) => (
-            <li className="nav-item d-flex align-items-center" key={cat}>
-              <NavLink className="p-4" to={`/artisans?categorie=${cat}`}>
-                {cat}
+            <li className="nav-item d-flex align-items-center" key={cat.id_categorie}>
+              <NavLink className="p-4" to={`/artisans?categorie=${cat.id_categorie}`}>
+                {cat.nom}
               </NavLink>
 
               {/* séparateur sauf dernier */}

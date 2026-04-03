@@ -105,7 +105,7 @@ router.get('/', async (req, res) => {
     if (categorie) {
       includeCategorie = {
         model: Categorie,
-        where: { nom: categorie },
+        where: { id_categorie: categorie },
         attributes: []
       };
     } else {
