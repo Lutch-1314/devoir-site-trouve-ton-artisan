@@ -57,9 +57,9 @@ h3 {
   &::before {
     content: "";
     display: block;
-    width: 40px;
+    width: clamp(38px, 10vw, 75px);
     height: 6px;
-    margin-bottom: 25px;
+    margin-bottom: 2rem;
   }
 
   &.blue::before {
