@@ -1,17 +1,11 @@
-import { useState } from "react";
 import menuIcon from "../assets/icons/menu.svg";
 
-function MenuButton() {
-  const [open, setOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setOpen(!open);
-  };
-
+function MenuButton({ toggleMenu }) {
   return (
     <div className="menu">
       <button
         className="menu-action"
+        type="button"
         onClick={toggleMenu}
       >
         <img className="menu-icon"

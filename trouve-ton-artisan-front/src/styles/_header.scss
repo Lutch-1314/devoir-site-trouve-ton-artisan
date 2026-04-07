@@ -1,14 +1,23 @@
 @use "variables" as *;
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 96px;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: var(--header-height);
   overflow: visible;
-    
-  .logo {
+  z-index: 100;
+  width: 100%;
+  background: $white;
+   
+  .header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
     width: clamp(200px, 25vw, 400px);
     height: auto;
+    }
   }
 }

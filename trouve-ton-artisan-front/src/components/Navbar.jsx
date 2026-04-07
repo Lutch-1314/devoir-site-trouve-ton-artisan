@@ -6,6 +6,11 @@ import { getCategories } from "../services/api";
 
 const Navbar = () => {
   const [categories, setCategories] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -21,12 +26,29 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar custom-navbar">
+    <nav className="custom-navbar">
 
       {/* ligne mobile */}
       <div className="mobile-actions d-flex justify-content-end d-lg-none">
         <SearchBar />
-        <MenuButton />
+        <MenuButton toggleMenu={toggleMenu} />
+      </div>
+
+      {menuOpen && <div className="overlay d-lg-none" onClick={toggleMenu}></div>}
+
+      <div className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}>
+        <ul>
+          {categories.map((cat) => (
+            <li key={cat.id_categorie || cat.id}>
+              <NavLink
+                to={`/artisans?categorie=${cat.id_categorie || cat.id}`}
+                onClick={toggleMenu}
+              >
+                {cat.nom}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
       </div>
 
       {/* ligne recherche desktop */}
@@ -38,8 +60,8 @@ const Navbar = () => {
       <div className="desktop-menu d-none d-lg-block">
         <ul className="navbar-nav flex-row align-items-center">
           {categories.map((cat, index) => (
-            <li className="nav-item d-flex align-items-center" key={cat.id_categorie}>
-              <NavLink className="p-4" to={`/artisans?categorie=${cat.id_categorie}`}>
+            <li className="nav-item d-flex align-items-center" key={cat.id_categorie || cat.id}>
+              <NavLink className="p-4" to={`/artisans?categorie=${cat.id_categorie || cat.id}`}>
                 {cat.nom}
               </NavLink>
 

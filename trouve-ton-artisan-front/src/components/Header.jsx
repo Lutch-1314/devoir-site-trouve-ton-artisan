@@ -5,12 +5,13 @@ import Navbar from "./Navbar";
 const Header = () => {
   return (
       <header className="header default-container">
-        <Link to="/">
-          <img className="logo" src={logo} alt="Logo Trouve ton Artisan" />
-        </Link>
+        <div className="header-inner">
+          <Link to="/">
+            <img className="logo" src={logo} alt="Logo Trouve ton Artisan" />
+          </Link>
 
-        <Navbar />
-
+          <Navbar />
+        </div>
       </header>
   );
 };

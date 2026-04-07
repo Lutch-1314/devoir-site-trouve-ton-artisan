@@ -4,27 +4,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: transparent;
   transition: all 0.2s;
   cursor: pointer;
 
-  @media (min-width: $tablet) {
-    width: 60px;
-    height: 60px;
-  }
-
   .search-icon {
     color: $blue;
-    width: 24px;
-    height: 24px;
-
-    @media (min-width: $tablet) {
-      width: 40px;
-      height: 40px;
-    }
+    width: 40px;
+    height: 40px;
   }
 
   &:hover {

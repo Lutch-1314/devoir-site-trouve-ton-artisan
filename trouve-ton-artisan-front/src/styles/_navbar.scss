@@ -29,7 +29,7 @@
 .custom-navbar {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: $gap-fluid;
 }
 
 .mobile-actions {
@@ -43,6 +43,47 @@ a {
 
 .desktop-menu .navbar-nav {
   align-items: center;
+}
+
+.mobile-menu {
+  display: none;
+  background: $white;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 170;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu li {
+  padding: 0.75rem 1.25rem;
+}
+
+.mobile-menu li a {
+  color: $grey;
+  text-decoration: none;
+}
+
+.overlay {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--header-height));
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 160;
 }
 
 .nav-item {
