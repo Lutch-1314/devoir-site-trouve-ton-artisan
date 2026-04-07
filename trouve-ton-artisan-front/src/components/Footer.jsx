@@ -3,9 +3,7 @@ import PhoneIcon from "./PhoneIcon";
 
 const Footer = () => {
   return (
-    <footer className="footer section">
-
-      <div className="default-container">
+    <footer className="footer section default-container">
 
         <div className="row justify-content-center">
           <div className="col-auto">
@@ -28,39 +26,33 @@ const Footer = () => {
           </div>
         </div>
 
-      </div>
-
       <div className="footer-divider"></div>
 
-      <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-auto py-3">
+          <ul className="footer-links list-unstyled ps-0 mb-0">
 
-        <div className="row justify-content-center">
-          <div className="col-auto">
-            <ul className="footer-links list-unstyled ps-0 mb-0">
+            <li className="footer-link">
+              <Link to="/being-built">Mentions légales</Link>
+            </li>
 
-              <li className="footer-link">
-                <Link to="/being-built">Mentions légales</Link>
-              </li>
+            <li className="footer-link">
+              <Link to="/being-built">Données personnelles</Link>
+            </li>
 
-              <li className="footer-link">
-                <Link to="/being-built">Données personnelles</Link>
-              </li>
+            <li className="footer-link">
+              <Link to="/being-built">Accessibilité</Link>
+            </li>
 
-              <li className="footer-link">
-                <Link to="/being-built">Accessibilité</Link>
-              </li>
+            <li className="footer-link">
+              <Link to="/being-built">Politique des cookies</Link>
+            </li>
 
-              <li className="footer-link">
-                <Link to="/being-built">Politique des cookies</Link>
-              </li>
-
-              <li className="footer-link">
-                <Link to="/being-built">Gestion des cookies</Link>
-              </li>
-            </ul>
-          </div>
+            <li className="footer-link">
+              <Link to="/being-built">Gestion des cookies</Link>
+            </li>
+          </ul>
         </div>
-
       </div>
     </footer>
   );
