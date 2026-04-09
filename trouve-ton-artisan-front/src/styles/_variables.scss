@@ -21,3 +21,8 @@ $padding-fluid: clamp(1.5rem, 5vw, 5rem);
 //gaps
 
 $gap-fluid: clamp(1.5rem, 3vw, 2.5rem);
+
+
+:root {
+  --header-height: clamp(96px, 12vw + 20px, 240px);
+}

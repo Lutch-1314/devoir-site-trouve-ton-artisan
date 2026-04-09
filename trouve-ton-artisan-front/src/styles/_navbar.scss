@@ -29,7 +29,6 @@
 .custom-navbar {
   display: flex;
   flex-direction: column;
-  gap: $gap-fluid;
 }
 
 .mobile-actions {
@@ -47,14 +46,30 @@ a {
 
 .mobile-menu {
   display: none;
-  background: $white;
-  width: 100%;
-  padding: 1rem 0;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
-  position: absolute;
-  top: 100%;
+  position: fixed; // 🔥 change tout
+  top: var(--header-height);
   left: 0;
+
+  width: 100%;
+  height: calc(100vh - var(--header-height)); // 🔥 prend tout l’écran
+
+  background: $white;
+  padding: $padding-fluid;
+
+  overflow-y: auto; // 🔥 scroll si beaucoup de catégories
+
   z-index: 170;
+}
+
+.mobile-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(to bottom, $grey, lighten($grey, 90%));
+  opacity: 0.2;
 }
 
 .mobile-menu.open {
@@ -77,13 +92,7 @@ a {
 }
 
 .overlay {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  width: 100%;
-  height: calc(100vh - var(--header-height));
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 160;
+  background: transparent;
 }
 
 .nav-item {

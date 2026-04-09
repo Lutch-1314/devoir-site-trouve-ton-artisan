@@ -4,11 +4,14 @@
   position: relative;
   top: 0;
   left: 0;
-  height: var(--header-height);
+  min-height: var(--header-height);
   overflow: visible;
-  z-index: 100;
+  z-index: 210;
   width: 100%;
   background: $white;
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
    
   .header-inner {
     display: flex;

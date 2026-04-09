@@ -42,6 +42,13 @@ body {
   width: 100%;
 }
 
+body.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  touch-action: none;
+}
+
 h1, h2 {
   font-weight: 900;
   color: $dark-blue;
