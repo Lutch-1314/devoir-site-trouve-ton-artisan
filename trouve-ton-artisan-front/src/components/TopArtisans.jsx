@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react";
-import { getTopArtisans } from "../services/api";
 import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
 import arrowRight from "../assets/icons/arrow-right.svg";
@@ -7,32 +5,14 @@ import arrowLeft from "../assets/icons/arrow-left.svg";
 import Rating from "./Rating";
 import Button from "./Button";
 
+import useTopArtisans from "../hooks/useTopArtisans";
+
 const TopArtisans = () => {
-
-  const [artisans, setArtisans] = useState([])
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-
-    const fetchArtisans = async () => {
-      try {
-        const data = await getTopArtisans();
-        setArtisans(data);
-      } catch (error) {
-        console.error("Erreur API :", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArtisans();
-
-  }, []);
+  const { artisans, loading } = useTopArtisans();
 
   if (loading) {
     return <p>Chargement des artisans...</p>;
   }
-
 
   return (
     <section className="section top-artisans">
