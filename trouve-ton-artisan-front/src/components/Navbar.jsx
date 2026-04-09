@@ -1,47 +1,24 @@
 import { NavLink } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 import SearchBar from "./SearchBar";
 import MenuButton from "./MenuButton";
-import { getCategories } from "../services/api";
+
+import useBodyScrollLock from "../hooks/useBodyScrollLock";
+import useHeaderHeight from "../hooks/useHeaderHeight";
+import useCategories from "../hooks/useCategories";
 
 const Navbar = () => {
-  const [categories, setCategories] = useState([]);
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const categories = useCategories();
+
+  useBodyScrollLock(menuOpen);
+  useHeaderHeight();
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-      const categoriesData = await getCategories();
-      setCategories(categoriesData);
-      } catch (err) {
-        console.error("Erreur lors de la récupération des catégories :", err);
-      }
-    };
-
-    fetchCategories();
-  }, []);
-
-  useEffect(() => {
-  document.body.classList.toggle("no-scroll", menuOpen);
-}, [menuOpen]);
-
-useEffect(() => {
-  const header = document.querySelector(".header");
-
-  const updateHeight = () => {
-    const height = header.offsetHeight;
-    document.documentElement.style.setProperty("--header-height", `${height}px`);
-  };
-
-  updateHeight();
-  window.addEventListener("resize", updateHeight);
-
-  return () => window.removeEventListener("resize", updateHeight);
-}, []);
 
   return (
     <nav className="custom-navbar">
