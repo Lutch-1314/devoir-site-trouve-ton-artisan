@@ -46,17 +46,22 @@ a {
 
 .mobile-menu {
   display: none;
-  position: fixed; // 🔥 change tout
+  position: fixed;
   top: var(--header-height);
+
+  @media (max-width: 440px) {
+    top: calc(1vh + var(--header-height));
+  }
+
   left: 0;
 
   width: 100%;
-  height: calc(100vh - var(--header-height)); // 🔥 prend tout l’écran
+  height: calc(100vh - var(--header-height));
 
   background: $white;
   padding: $padding-fluid;
 
-  overflow-y: auto; // 🔥 scroll si beaucoup de catégories
+  overflow-y: auto;
 
   z-index: 170;
 }

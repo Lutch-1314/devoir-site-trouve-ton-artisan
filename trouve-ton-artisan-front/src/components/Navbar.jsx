@@ -5,7 +5,6 @@ import SearchBar from "./SearchBar";
 import MenuButton from "./MenuButton";
 
 import useBodyScrollLock from "../hooks/useBodyScrollLock";
-import useHeaderHeight from "../hooks/useHeaderHeight";
 import useCategories from "../hooks/useCategories";
 
 const Navbar = () => {
@@ -14,7 +13,6 @@ const Navbar = () => {
   const categories = useCategories();
 
   useBodyScrollLock(menuOpen);
-  useHeaderHeight();
   
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

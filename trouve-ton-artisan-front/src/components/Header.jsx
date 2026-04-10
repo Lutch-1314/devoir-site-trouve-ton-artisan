@@ -4,14 +4,12 @@ import Navbar from "./Navbar";
 
 const Header = () => {
   return (
-      <header className="header default-container">
-        <div className="header-inner">
+      <header className="header">
           <Link to="/">
             <img className="logo" src={logo} alt="Logo Trouve ton Artisan" />
           </Link>
 
           <Navbar />
-        </div>
       </header>
   );
 };

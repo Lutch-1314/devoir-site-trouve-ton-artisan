@@ -9,18 +9,13 @@
   z-index: 210;
   width: 100%;
   background: $white;
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-   
-  .header-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   
     .logo {
     width: clamp(200px, 25vw, 400px);
     height: auto;
     }
   }
-}
