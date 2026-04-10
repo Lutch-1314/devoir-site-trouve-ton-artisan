@@ -23,8 +23,11 @@
   &-icon {
     width: 24px;
     height: 24px;
-    transition: transform 1s ease;
   }
+}
+
+.menu-open .search-bar > .d-lg-none {
+  transform: translateX(-0.35rem);
 }
 
 .custom-navbar {

@@ -19,7 +19,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="custom-navbar">
+    <nav className={`custom-navbar ${menuOpen ? "menu-open" : ""}`}>
 
       {/* ligne mobile */}
       <div className="mobile-actions d-flex justify-content-end d-lg-none">

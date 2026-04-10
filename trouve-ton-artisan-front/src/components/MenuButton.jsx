@@ -5,7 +5,7 @@ function MenuButton({ toggleMenu, isOpen }) {
   return (
     <div className="menu">
       <button
-        className="menu-action"
+        className={`menu-action ${isOpen ? "open" : ""}`}
         type="button"
         onClick={toggleMenu}
       >
