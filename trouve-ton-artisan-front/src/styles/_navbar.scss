@@ -49,7 +49,7 @@ a {
 }
 
 .mobile-menu {
-  display: none;
+  display: block;
   position: fixed;
   top: var(--header-height);
 
@@ -58,16 +58,21 @@ a {
   }
 
   left: 0;
-
   width: 100%;
   height: calc(100vh - var(--header-height));
 
   background: $white;
   padding: $padding-fluid;
-
   overflow-y: auto;
-
   z-index: 170;
+
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+
+  transition: 
+    opacity 0.3s ease-out,
+    transform 0.3s ease-out;
 }
 
 .mobile-menu::before {
@@ -82,7 +87,9 @@ a {
 }
 
 .mobile-menu.open {
-  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .mobile-menu ul {
