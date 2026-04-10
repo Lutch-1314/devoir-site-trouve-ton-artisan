@@ -1,6 +1,7 @@
 import menuIcon from "../assets/icons/menu.svg";
+import crossIcon from "../assets/icons/cross.svg";
 
-function MenuButton({ toggleMenu }) {
+function MenuButton({ toggleMenu, isOpen }) {
   return (
     <div className="menu">
       <button
@@ -9,12 +10,15 @@ function MenuButton({ toggleMenu }) {
         onClick={toggleMenu}
       >
         <img className="menu-icon"
-          src={menuIcon}
-          alt="Menu"
+          src={isOpen ? crossIcon : menuIcon}
+          alt={isOpen ? "" : "Menu"}
         />
-        <span className="menu-text">
-          Menu
-        </span>
+       
+        {!isOpen && (
+          <span className="menu-text">
+            Menu
+          </span>
+        )}
       </button>
     </div>
   );

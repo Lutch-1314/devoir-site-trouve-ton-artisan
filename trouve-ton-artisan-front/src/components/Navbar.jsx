@@ -24,7 +24,7 @@ const Navbar = () => {
       {/* ligne mobile */}
       <div className="mobile-actions d-flex justify-content-end d-lg-none">
         <SearchBar />
-        <MenuButton toggleMenu={toggleMenu} />
+        <MenuButton toggleMenu={toggleMenu} isOpen={menuOpen} />
       </div>
 
       {menuOpen && <div className="overlay d-lg-none" onClick={toggleMenu}></div>}
