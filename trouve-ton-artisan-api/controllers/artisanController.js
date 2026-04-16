@@ -34,7 +34,9 @@ exports.getArtisanById = async (req, res) => {
 
 exports.getArtisans = async (req, res) => {
   try {
-    const artisans = await artisanService.getArtisans(req.query.categorie);
+    const categorie = req.query.categorie;
+
+    const artisans = await artisanService.getArtisans(categorie);
     res.json(artisans);
   } catch (err) {
     res.status(500).json({ error: 'Erreur serveur' });

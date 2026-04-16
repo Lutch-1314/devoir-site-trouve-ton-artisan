@@ -59,11 +59,12 @@ exports.getArtisanById = async (id) => {
 exports.getArtisans = async (categorie) => {
   let includeCategorie = {
     model: Categorie,
-    attributes: []
+    attributes: [],
+    required: true
   };
 
   if (categorie) {
-    includeCategorie.where = { id_categorie: categorie };
+    includeCategorie.where = { id_categorie: Number(categorie) };
   }
 
   const artisans = await Artisan.findAll({
@@ -72,9 +73,12 @@ exports.getArtisans = async (categorie) => {
       {
         model: Specialite,
         attributes: ['nom'],
+        required: true,
         include: [includeCategorie]
       },
-      { model: Ville, attributes: ['nom'] }
+      { model: Ville, 
+        attributes: ['nom']
+      }
     ]
   });
 
