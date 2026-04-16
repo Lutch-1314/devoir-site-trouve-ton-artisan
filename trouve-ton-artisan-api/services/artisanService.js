@@ -68,7 +68,7 @@ exports.getArtisans = async (categorie) => {
   }
 
   const artisans = await Artisan.findAll({
-    attributes: ['nom', 'note'],
+    attributes: ['id_artisan', 'nom', 'note'],
     include: [
       {
         model: Specialite,
@@ -83,6 +83,7 @@ exports.getArtisans = async (categorie) => {
   });
 
   return artisans.map(a => ({
+    id: a.id_artisan,
     nom: a.nom,
     note: a.note,
     specialite: a.Specialite.nom,

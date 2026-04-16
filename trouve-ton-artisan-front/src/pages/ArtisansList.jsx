@@ -16,8 +16,9 @@ const [artisans, setArtisans] = useState([]);
 useEffect(() => {
   const fetchArtisans = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/artisans");
+      const response = await fetch(`http://localhost:3000/api/artisans?categorie=${categorieId}`);
       const data = await response.json();
+
       setArtisans(data);
     } catch (error) {
       console.error(error);
@@ -25,42 +26,57 @@ useEffect(() => {
   };
 
   fetchArtisans();
-}, []);
+}, [categorieId]);
+
+const categoryColors = {
+  "Bâtiment": "red",
+  "Alimentation": "red",
+  "Services": "green",
+  "Fabrication": "blue",
+};
+
+const colorClass = currentCategory
+  ? categoryColors[currentCategory.nom] || "blue"
+  : "blue";
 
   return (
-    <div>
-      <h2>
-        {currentCategory ? currentCategory.nom : "Artisans"}
-      </h2>
+    <section className="section artisans-by-category">
 
-      <div className="row">
-  {artisans.map((artisan) => (
-    <div className="col-md-4 mb-4" key={artisan.id}>
-      <div className="artisan-card p-3 h-100 d-flex flex-column justify-content-between">
+      <div className="default-container">
 
-        <div>
-          <h5 className="artisan-name">{artisan.nom}</h5>
+        <h1 className={`title-deco ${colorClass}`}>
+          {currentCategory ? currentCategory.nom : "Artisans"}
+        </h1>
 
-          <p className="artisan-note">⭐ {artisan.note}/5</p>
+        <div className="row">
+          {artisans.map((artisan) => (
+            <div className="col-md-4 mb-4" key={artisan.id}>
+              <div className="artisan-card p-3 h-100 d-flex flex-column justify-content-between">
 
-          <p className="artisan-specialite">
-            {artisan.specialite}
-          </p>
+                <div>
+                  <h5 className="artisan-name">{artisan.nom}</h5>
 
-          <p className="artisan-ville text-muted">
-            📍 {artisan.ville}
-          </p>
+                  <p className="artisan-note">⭐ {artisan.note}/5</p>
+
+                  <p className="artisan-specialite">
+                    {artisan.specialite}
+                  </p>
+
+                  <p className="artisan-ville text-muted">
+                    📍 {artisan.ville}
+                  </p>
+                </div>
+
+                <button className="btn btn-link mt-3 text-start p-0">
+                  Voir la fiche complète →
+                </button>
+
+              </div>
+            </div>
+          ))}
         </div>
-
-        <button className="btn btn-link mt-3 text-start p-0">
-          Voir la fiche complète →
-        </button>
-
       </div>
-    </div>
-  ))}
-</div>
-    </div>
+    </section>
   );
 };
 
