@@ -1,15 +1,11 @@
 @use "variables" as *;
 
 .star {
-  width: 1.3rem;
-  height: 1.3rem;
+  width: clamp(1.3rem, 1.2rem + 0.8vw, 2rem);
+  height: clamp(1.3rem, 1.2rem + 0.8vw, 2rem);
   position: relative;
   overflow: hidden;
-
-  @media (min-width: $desktop) {
-    width: 2rem;
-    height: 2rem;
-  }
+  flex-shrink: 1;
 }
 
 .star-bg,

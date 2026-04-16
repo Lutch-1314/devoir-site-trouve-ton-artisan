@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useCategories from "../hooks/useCategories";
 
+import Rating from "../components/Rating";
+import artisanIcon from "../assets/icons/artisan.svg";
+import locationIcon from "../assets/icons/location.svg";
+
 const ArtisansList = () => {
   const categories = useCategories();
   const [searchParams] = useSearchParams();
@@ -44,33 +48,41 @@ const colorClass = currentCategory
 
       <div className="default-container">
 
-        <h1 className={`title-deco ${colorClass}`}>
+        <h1 className={`title-deco ${colorClass} mb-4`}>
           {currentCategory ? currentCategory.nom : "Artisans"}
         </h1>
 
-        <div className="row">
+        <div className="row g-5">
           {artisans.map((artisan) => (
-            <div className="col-md-4 mb-4" key={artisan.id}>
-              <div className="artisan-card p-3 h-100 d-flex flex-column justify-content-between">
+            <div className="col-md-6 col-lg-4" key={artisan.id}>
+              <div className="artisan-card p-5 h-100 d-flex flex-column gap-4">
+                <h2 className="artisan-name">{artisan.nom}</h2>
 
-                <div>
-                  <h5 className="artisan-name">{artisan.nom}</h5>
-
-                  <p className="artisan-note">⭐ {artisan.note}/5</p>
-
-                  <p className="artisan-specialite">
-                    {artisan.specialite}
-                  </p>
-
-                  <p className="artisan-ville text-muted">
-                    📍 {artisan.ville}
-                  </p>
+                <div className="rating-wrapper">
+                  <span className="rating-value">{artisan.note}</span>
+                  <Rating value={artisan.note} />
                 </div>
 
-                <button className="btn btn-link mt-3 text-start p-0">
+                <div className="artisan-infos d-flex flex-column gap-4">
+                  <span className="artisan-speciality">
+                    <img className="artisan-icon"
+                        src={artisanIcon}
+                        alt="Artisan"
+                    />
+                    {artisan.specialite}
+                  </span>
+                  <span className="artisan-location">
+                    <img className="location-icon"
+                        src={locationIcon}
+                        alt="Localisation"
+                    />
+                    {artisan.ville}
+                  </span>
+                </div>
+                  
+                <button className="btn btn-link mt-auto text-start p-0">
                   Voir la fiche complète →
                 </button>
-
               </div>
             </div>
           ))}

@@ -31,7 +31,7 @@ const TopArtisans = () => {
                 key={artisan.id_artisan}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
-                <div className="artisan-card">
+                <div className="artisan-top">
 
                   <p className="artisan-position h3 fw-bold">
                     {index + 1}/{artisans.length}

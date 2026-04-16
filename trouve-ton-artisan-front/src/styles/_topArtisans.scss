@@ -1,6 +1,6 @@
 @use "variables" as *;
 
-.artisan-card {
+.artisan-top {
   display: flex;
   flex-direction: column;
   gap: $gap-fluid;
@@ -35,12 +35,6 @@
   height: auto;
   object-fit: contain;
   }
-}
-
-.rating-wrapper {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
 }
 
 .carousel-controls {
