@@ -15,33 +15,33 @@ const ArtisansList = () => {
   const currentCategory = categories.find(
     (cat) => String(cat.id_categorie || cat.id) === categorieId
   );
-const [artisans, setArtisans] = useState([]);
+  const [artisans, setArtisans] = useState([]);
 
-useEffect(() => {
-  const fetchArtisans = async () => {
-    try {
-      const response = await fetch(`http://localhost:3000/api/artisans?categorie=${categorieId}`);
-      const data = await response.json();
+  useEffect(() => {
+    const fetchArtisans = async () => {
+      try {
+        const response = await fetch(`http://localhost:3000/api/artisans?categorie=${categorieId}`);
+        const data = await response.json();
 
-      setArtisans(data);
-    } catch (error) {
-      console.error(error);
-    }
+        setArtisans(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchArtisans();
+  }, [categorieId]);
+
+  const categoryColors = {
+    "Bâtiment": "red",
+    "Alimentation": "red",
+    "Services": "green",
+    "Fabrication": "blue",
   };
 
-  fetchArtisans();
-}, [categorieId]);
-
-const categoryColors = {
-  "Bâtiment": "red",
-  "Alimentation": "red",
-  "Services": "green",
-  "Fabrication": "blue",
-};
-
-const colorClass = currentCategory
-  ? categoryColors[currentCategory.nom] || "blue"
-  : "blue";
+  const colorClass = currentCategory
+    ? categoryColors[currentCategory.nom] || "blue"
+    : "blue";
 
   return (
     <section className="section artisans-by-category">
