@@ -15,6 +15,8 @@ sequelize.authenticate()
   .then(() => console.log('Connexion MySQL OK'))
   .catch(err => console.error('Erreur de connexion :', err));
 
+app.use('/images', express.static('public/images'));
+
 const artisanRoutes = require('./routes/artisanRoutes');
 app.use('/api/artisans', artisanRoutes);
 

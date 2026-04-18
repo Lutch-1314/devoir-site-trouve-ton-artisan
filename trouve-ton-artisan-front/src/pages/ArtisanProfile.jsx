@@ -17,7 +17,38 @@ const ArtisanProfile = () => {
   }
 
   return (
-    <h1>{artisan?.nom}</h1>
+    <>
+      <section className="section artisan-infos-profile">
+        <div className="default-container">
+        
+          <h1>{artisan.nom}</h1>
+
+          <img 
+            src={`http://localhost:3000/images/artisans/${id}.jpg`}
+            alt={artisan.nom}
+            className="artisan-img"
+          />
+
+        </div>
+      </section>
+
+      <section className="section about">
+        <div className="default-container">
+
+          <h2>À propos</h2>
+        </div>
+      </section>
+
+      <section className="section contact">
+        <div className="default-container">
+
+          <h2>Contact</h2>
+
+        </div>
+      </section>
+    </>
+
+
   );
 };
 

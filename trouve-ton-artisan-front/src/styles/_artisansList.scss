@@ -1,20 +1,5 @@
 @use "variables" as *;
 
-.section {
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-    background: linear-gradient(to bottom, $grey, lighten($grey, 90%));
-    opacity: 0.2;
-  }
-}
-
 .artisan-card {
   background: $white-blue;
   border-radius: 20px;  
