@@ -1,5 +1,11 @@
 @use "variables" as *;
 
+.artisan-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
 .img-infos-wrapper {
   display: flex;
   flex-direction: column;
@@ -11,16 +17,8 @@
 
     .artisan-img {
       width: 50%;
-      height: auto;
-      border-radius: 10px;
     }
   }
-}
-
-.artisan-img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
 }
 
 .artisan-infos {
