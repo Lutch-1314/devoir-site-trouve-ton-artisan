@@ -1,9 +1,43 @@
 @use "variables" as *;
 
+.img-infos-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: $gap-fluid;
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    gap: 4rem;
+
+    .artisan-img {
+      width: 50%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+}
+
 .artisan-img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.artisan-infos {
+  border-left: 1px solid $blue;
+  font-style: normal;
+  padding: $padding-fluid;
+
+  @media (min-width: $desktop) {
+    flex-direction: column;
+  }
+
+  .artisan-website {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    
+  }
 }
 
 .about {
