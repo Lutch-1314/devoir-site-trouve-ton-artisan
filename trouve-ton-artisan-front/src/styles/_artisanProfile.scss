@@ -40,8 +40,28 @@
 
 .about {
   background: $white-blue;
+
+  .about-paragraph {
+    line-height: 2.5;
+  }
 }
 
-.contact {
-  // Styles for the contact section
+.contact-form {
+  border: 1px solid $blue;
+  border-radius: 10px;
+  padding: $padding-fluid;
+}
+.form-field {
+  display: grid;
+  grid-template-columns: clamp(100px, 20%, 200px) 1fr;
+  align-items: center;
+}
+
+.form-label {
+  margin-bottom: 0;
+}
+
+.form-control {
+  border: 1px solid $grey;
+  border-radius: 5px;
 }
