@@ -9,6 +9,33 @@ import Button from "../components/Button";
 
 const ArtisanProfile = () => {
   const { id } = useParams();
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: e.target.name.value,
+    email: e.target.email.value,
+    subject: e.target.subject.value,
+    message: e.target.message.value,
+  };
+
+  try {
+    const res = await fetch(`http://localhost:3000/api/artisans/${id}/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
   const [artisan, setArtisan] = useState(null);
 
   useEffect(() => {
@@ -85,27 +112,27 @@ const ArtisanProfile = () => {
 
           <h2 className="title-deco green">Contact</h2>
 
-          <form className="contact-form" action="">
+          <form className="contact-form" onSubmit={handleSubmit} action="">
             <div className="form-field mb-5">
-              <label htmlFor="name" className="form-label">Nom</label>
+              <label htmlFor="name" name="name" className="form-label">Nom</label>
               <input type="text" className="form-control" id="name" required />
             </div>
             <div className="form-field mb-5">
-              <label htmlFor="email" className="form-label">Email</label>
+              <label htmlFor="email" name="email"className="form-label">Email</label>
               <input type="email" className="form-control" id="email" required />
             </div>
             <div className="form-field mb-5">
-              <label htmlFor="subject" className="form-label">Objet</label>
+              <label htmlFor="subject" name="subject"className="form-label">Objet</label>
               <input type="text" className="form-control" id="subject" required />
             </div>
             <div className="form-field mb-5">
-              <label htmlFor="message" className="form-label">Message</label>
+              <label htmlFor="message" name="message" className="form-label">Message</label>
               <textarea className="form-control" id="message" rows="5" required></textarea>
             </div>
          
-              <Button variant="blue" type="submit">
-                Envoyer
-              </Button>
+            <Button variant="blue" type="submit">
+              Envoyer
+            </Button>
             
           </form>
 

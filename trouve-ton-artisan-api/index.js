@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -24,9 +26,9 @@ const categorieRoutes = require('./routes/categorieRoutes');
 app.use('/api/categories', categorieRoutes);
 
 app.get('/', (req, res) => {
-    res.send('API fonctionne !');
+  res.send('API fonctionne !');
 });
 
 app.listen(PORT, () => {
-    console.log(`Serveur démarré sur http://localhost:${PORT}`);
+  console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });
