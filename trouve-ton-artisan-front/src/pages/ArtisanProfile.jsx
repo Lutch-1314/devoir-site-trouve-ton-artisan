@@ -102,7 +102,11 @@ const ArtisanProfile = () => {
               <label htmlFor="message" className="form-label">Message</label>
               <textarea className="form-control" id="message" rows="5" required></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">Envoyer</button>
+         
+              <Button variant="blue" type="submit">
+                Envoyer
+              </Button>
+            
           </form>
 
         </div>

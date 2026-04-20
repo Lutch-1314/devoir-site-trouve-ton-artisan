@@ -62,7 +62,7 @@ const TopArtisans = () => {
                     </div>
                   </div>
 
-                  <Button link={`/artisans/${artisan.id_artisan}`}>
+                  <Button variant="white" link={`/artisans/${artisan.id_artisan}`}>
                     Voir la fiche
                   </Button>
 

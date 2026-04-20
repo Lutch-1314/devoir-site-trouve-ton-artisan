@@ -51,6 +51,7 @@
   border-radius: 10px;
   padding: $padding-fluid;
 }
+
 .form-field {
   display: grid;
   grid-template-columns: clamp(100px, 20%, 200px) 1fr;
@@ -64,4 +65,9 @@
 .form-control {
   border: 1px solid $grey;
   border-radius: 5px;
+}
+
+.contact-form button {
+  display: block;
+  margin: 1rem auto 0;
 }
