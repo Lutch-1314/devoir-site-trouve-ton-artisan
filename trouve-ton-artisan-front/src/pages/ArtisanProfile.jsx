@@ -92,13 +92,17 @@ const ArtisanProfile = () => {
                 {artisan.ville}
               </span>
 
-              <span className="artisan-website">
-                <img className="website-icon"
-                    src={websiteIcon}
-                    alt="Site web"
-                />
-                {artisan.site_web}
-              </span>
+              {artisan.site_web && (
+                <span className="artisan-website">
+                  <img className="website-icon"
+                      src={websiteIcon}
+                      alt="Site web"
+                  />
+                  <a href={artisan.site_web} target="_blank" rel="noopener noreferrer">
+                    {artisan.site_web}
+                  </a>
+                </span>
+              )}
             </div>
           </div>
         </div>
