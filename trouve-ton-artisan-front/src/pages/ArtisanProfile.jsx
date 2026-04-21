@@ -70,7 +70,7 @@ const ArtisanProfile = () => {
               className="artisan-img"
             />
 
-            <div className="artisan-infos">
+            <div className="artisan-profile-infos">
               <div className="rating-wrapper">
                 <span className="rating-value">{artisan.note}</span>
                 <Rating value={artisan.note} />
