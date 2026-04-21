@@ -3,6 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import useCategories from "../hooks/useCategories";
 
 import Rating from "../components/Rating";
+import Button from "../components/Button";
 import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
 
@@ -80,9 +81,9 @@ const ArtisansList = () => {
                   </span>
                 </div>
                   
-                <button className="btn btn-link mt-auto text-start p-0">
+                <Button className="btn btn-link mt-auto text-start p-0" link={`/artisans/${artisan.id}`}>
                   Voir la fiche complète →
-                </button>
+                </Button>
               </div>
             </div>
           ))}

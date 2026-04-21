@@ -21,7 +21,7 @@ exports.getTopArtisans = async () => {
   });
 
   return artisans.map(a => ({
-    id_artisan: a.id_artisan,
+    id: a.id_artisan,
     nom: a.nom,
     note: a.note,
     specialite: a.Specialite.nom,
@@ -45,6 +45,7 @@ exports.getArtisanById = async (id) => {
   if (!artisan) return null;
 
   return {
+    id: artisan.id_artisan,
     nom: artisan.nom,
     note: artisan.note,
     a_propos: artisan.a_propos,

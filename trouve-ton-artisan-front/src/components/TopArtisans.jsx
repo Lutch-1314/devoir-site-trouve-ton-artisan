@@ -62,7 +62,7 @@ const TopArtisans = () => {
                     </div>
                   </div>
 
-                  <Button variant="white" link={`/artisans/${artisan.id_artisan}`}>
+                  <Button variant="white" link={`/artisans/${artisan.id}`}>
                     Voir la fiche
                   </Button>
 
@@ -74,24 +74,23 @@ const TopArtisans = () => {
             
           </div>
           <div className="carousel-controls">   
-                    <button
-                      className="custom-carousel-btn"
-                      type="button"
-                      data-bs-target="#artisanCarousel"
-                      data-bs-slide="prev"
-                    >
-                      <img src={arrowLeft} alt="Précédent" />
-                    </button>
-
-                    <button
-                      className="custom-carousel-btn"
-                      type="button"
-                      data-bs-target="#artisanCarousel"
-                      data-bs-slide="next"
-                    >
-                      <img src={arrowRight} alt="Suivant" />
-                    </button>
-                  </div>
+            <button
+              className="custom-carousel-btn"
+              type="button"
+              data-bs-target="#artisanCarousel"
+              data-bs-slide="prev"
+            >
+              <img src={arrowLeft} alt="Précédent" />
+            </button>
+            <button
+              className="custom-carousel-btn"
+              type="button"
+              data-bs-target="#artisanCarousel"
+              data-bs-slide="next"
+            >
+              <img src={arrowRight} alt="Suivant" />
+            </button>
+          </div>
         </div>
       </div>
     </section>
