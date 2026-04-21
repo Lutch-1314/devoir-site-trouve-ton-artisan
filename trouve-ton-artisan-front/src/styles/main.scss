@@ -13,6 +13,7 @@
 @use "button";
 @use "artisansList";
 @use "artisanProfile";
+@use "beingBuilt";
 
 @font-face {
   font-family: "Graphik";
@@ -42,6 +43,13 @@ body {
   font-size: clamp(1rem, 2.5vw, 1.375rem);
   color: $grey;
   width: 100%;
+  height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 body.no-scroll {
@@ -63,6 +71,8 @@ h3 {
 }
 
 .main {
+  flex: 1;
+  display: flex;
   position: relative;
 
   &::before {
