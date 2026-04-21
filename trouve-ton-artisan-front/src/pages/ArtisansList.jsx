@@ -82,7 +82,7 @@ const ArtisansList = () => {
                 </div>
                   
                 <Button className="btn btn-link mt-auto text-start p-0" link={`/artisans/${artisan.id}`}>
-                  Voir la fiche complète →
+                  Voir la fiche complète <span className="arrow">➔</span>
                 </Button>
               </div>
             </div>
