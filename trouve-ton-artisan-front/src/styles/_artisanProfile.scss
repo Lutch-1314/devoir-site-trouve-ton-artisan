@@ -21,14 +21,15 @@
   }
 }
 
-.artisan-infos {
+.artisan-profile-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $gap-fluid;
   border-left: 1px solid $blue;
   font-style: normal;
+  
   padding: $padding-fluid;
-
-  @media (min-width: $desktop) {
-    flex-direction: column;
-  }
 
   .artisan-website {
     display: flex;
