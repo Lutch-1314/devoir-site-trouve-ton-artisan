@@ -9,9 +9,12 @@ import Button from "../components/Button";
 
 const ArtisanProfile = () => {
   const { id } = useParams();
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = async (e) => {
   e.preventDefault();
+
+  const form = e.target;
 
   const formData = {
     name: e.target.name.value,
@@ -29,10 +32,14 @@ const ArtisanProfile = () => {
       body: JSON.stringify(formData),
     });
 
-    const data = await res.json();
-    console.log(data);
+    if (!res.ok) throw new Error("Erreur envoi");
+
+    setStatus("success");
+    form.reset(); // 🔥 reset du form
+
   } catch (err) {
     console.error(err);
+    setStatus("error");
   }
 };
 
@@ -130,6 +137,14 @@ const ArtisanProfile = () => {
               <textarea className="form-control" id="message" rows="5" required></textarea>
             </div>
          
+            {status === "success" && (
+              <p className="form-success">Message envoyé avec succès !</p>
+            )}
+
+            {status === "error" && (
+              <p className="form-error">Une erreur est survenue.</p>
+            )}
+
             <Button variant="blue" type="submit">
               Envoyer
             </Button>

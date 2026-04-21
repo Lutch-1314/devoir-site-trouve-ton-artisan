@@ -13,8 +13,9 @@ exports.sendMessage = async (req, res) => {
     }
 
     await mailService.sendMail({
-      from: email,
-      to: "lucie.aimar13@gmail.com",
+      from: process.env.EMAIL_USER,
+      to: artisan.email,
+      replyTo: email,
       subject,
       text: `
         Nom: ${name}
