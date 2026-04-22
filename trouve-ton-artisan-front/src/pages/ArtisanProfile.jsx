@@ -63,13 +63,14 @@ const ArtisanProfile = () => {
         
           <h1>{artisan.nom}</h1>
 
-          <div className="img-infos-wrapper">
-            <img 
-              src={`http://localhost:3000/images/artisans/${id}.jpg`}
-              alt={artisan.nom}
-              className="artisan-img"
-            />
-
+          <div className="artisan-card-profile">
+            <div className="artisan-img-wrapper">
+              <img 
+                src={`http://localhost:3000/images/artisans/${id}.jpg`}
+                alt={artisan.nom}
+                className="artisan-img"
+              />
+            </div>
             <div className="artisan-profile-infos">
               <div className="rating-wrapper">
                 <span className="rating-value">{artisan.note}</span>
