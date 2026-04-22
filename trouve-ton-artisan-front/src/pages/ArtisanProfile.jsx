@@ -113,7 +113,7 @@ const ArtisanProfile = () => {
 
           <h2 className="title-deco red">À propos</h2>
 
-          <p className="about-paragraph">{artisan.a_propos}</p>
+          <p>{artisan.a_propos}</p>
 
         </div>
      </section>
