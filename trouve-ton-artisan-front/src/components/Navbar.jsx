@@ -2,12 +2,20 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 import SearchBar from "./SearchBar";
+import SearchIcon from "./SearchIcon";
 import MenuButton from "./MenuButton";
 
 import useBodyScrollLock from "../hooks/useBodyScrollLock";
 import useCategories from "../hooks/useCategories";
 
 const Navbar = () => {
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+    setMenuOpen(false);
+  };
+
   const [menuOpen, setMenuOpen] = useState(false);
 
   const categories = useCategories();
@@ -23,10 +31,18 @@ const Navbar = () => {
 
       {/* ligne mobile */}
       <div className="mobile-actions d-flex justify-content-end d-lg-none">
-        <SearchBar />
+        <button className="search-toggle" onClick={toggleSearch}>
+          <SearchIcon />
+        </button>
         <MenuButton toggleMenu={toggleMenu} isOpen={menuOpen} />
       </div>
 
+      {searchOpen && (
+      <div className={`mobile-search d-lg-none ${searchOpen ? "open" : ""}`}>
+        <SearchBar />
+      </div>
+      )}
+      
       {menuOpen && <div className="overlay d-lg-none" onClick={toggleMenu}></div>}
 
       <div className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}>

@@ -1,5 +1,24 @@
 @use "variables" as *;
 
+.mobile-search {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+
+  background: $white;
+  padding: $padding-fluid;
+ 
+  box-shadow: 
+  0 -2px 6px rgba(0,0,0,0.06),
+  0 6px 12px rgba(0,0,0,0.08);
+}
+
+.search-input {
+  width: 100%;
+  color: $grey;
+}
+
 .menu {
   &-action {
     display: flex;
