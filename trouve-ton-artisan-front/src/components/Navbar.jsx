@@ -38,12 +38,21 @@ const Navbar = () => {
       </div>
 
       {searchOpen && (
-      <div className={`mobile-search d-lg-none ${searchOpen ? "open" : ""}`}>
-        <SearchBar />
-      </div>
+        <>
+          <div
+            className="overlay"
+            onClick={() => setSearchOpen(false)}
+          ></div>
+
+          <div className="mobile-search d-lg-none">
+            <SearchBar onSelect={() => setSearchOpen(false)} />
+          </div>
+        </>
       )}
       
-      {menuOpen && <div className="overlay d-lg-none" onClick={toggleMenu}></div>}
+      {menuOpen && 
+        <div className="overlay d-lg-none" onClick={toggleMenu}></div>
+      }
 
       <div className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}>
         <ul>

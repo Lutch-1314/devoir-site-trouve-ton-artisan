@@ -2,11 +2,14 @@ const { Artisan, Specialite, Ville, Categorie } = require('../models');
 
 exports.getNomsArtisans = async () => {
   const artisans = await Artisan.findAll({
-    attributes: ['nom'],
+    attributes: ['id_artisan', 'nom'],
     order: [['nom', 'ASC']]
   });
 
-  return artisans.map(a => a.nom);
+  return artisans.map(a => ({
+    id: a.id_artisan,
+    nom: a.nom
+  }));
 };
 
 exports.getTopArtisans = async () => {
