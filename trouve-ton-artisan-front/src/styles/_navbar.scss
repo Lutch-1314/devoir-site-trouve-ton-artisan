@@ -45,10 +45,6 @@
   }
 }
 
-.menu-open .search-bar > .d-lg-none {
-  transform: translateX(-0.35rem);
-}
-
 .custom-navbar {
   display: flex;
   flex-direction: column;
@@ -56,6 +52,12 @@
 
 .mobile-actions {
   gap: 12px;
+}
+
+.search-toggle,
+.menu-action {
+  width: 60px;
+  height: 60px;
 }
 
 a {
