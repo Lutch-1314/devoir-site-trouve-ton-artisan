@@ -125,19 +125,19 @@ const ArtisanProfile = () => {
           <h2 className="title-deco green">Contact</h2>
 
           <form className="contact-form" onSubmit={handleSubmit} action="">
-            <div className="form-field mb-5">
+            <div className="form-field mb-4 ">
               <label htmlFor="name" name="name" className="form-label">Nom</label>
               <input type="text" className="form-control" id="name" required />
             </div>
-            <div className="form-field mb-5">
+            <div className="form-field mb-4">
               <label htmlFor="email" name="email"className="form-label">Email</label>
               <input type="email" className="form-control" id="email" required />
             </div>
-            <div className="form-field mb-5">
+            <div className="form-field mb-4">
               <label htmlFor="subject" name="subject"className="form-label">Objet</label>
               <input type="text" className="form-control" id="subject" required />
             </div>
-            <div className="form-field mb-5">
+            <div className="form-field mb-4">
               <label htmlFor="message" name="message" className="form-label">Message</label>
               <textarea className="form-control" id="message" rows="5" required></textarea>
             </div>

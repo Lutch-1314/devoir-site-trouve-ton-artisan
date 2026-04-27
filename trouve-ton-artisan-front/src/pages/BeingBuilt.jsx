@@ -1,7 +1,7 @@
 const BeingBuilt = () => {
   return (
     <div className="section default-container being-built">
-      <p>Page en construction...</p>
+      <h1>Page en construction...</h1>
     </div>
   );
 };

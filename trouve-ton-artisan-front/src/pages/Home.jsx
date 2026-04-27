@@ -5,7 +5,7 @@ const Home = () => {
     <>
       <section className="section main-section">
         <div className="default-container">
-          <h1>Comment trouver mon artisan ?</h1>
+          <h1 className="title-deco red">Comment trouver mon artisan ?</h1>
 
           <div className="section-divider"></div>
 

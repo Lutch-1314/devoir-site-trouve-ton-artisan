@@ -58,7 +58,7 @@ const SearchBar = ({ onSelect }) => {
 
         <input
           type="text"
-          placeholder="Rechercher"
+          placeholder="Rechercher par nom"
           className="search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

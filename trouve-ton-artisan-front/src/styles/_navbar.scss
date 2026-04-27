@@ -48,6 +48,7 @@
 .custom-navbar {
   display: flex;
   flex-direction: column;
+  gap: $gap-fluid;
 }
 
 .mobile-actions {
