@@ -6,13 +6,18 @@ const Button = ({
   variant = "blue",
   type = "button",
   onClick,
+  ...props
 }) => {
   const className = `btn-artisan btn-${variant}`;
 
   // 👉 Si on a un lien → Link
   if (link) {
     return (
-      <Link to={link} className={className}>
+      <Link 
+        to={link}
+        className={className}
+        {...props}
+      >
         {children}
       </Link>
     );
@@ -20,7 +25,12 @@ const Button = ({
 
   // 👉 Sinon → vrai bouton (important pour formulaire)
   return (
-    <button className={className} type={type} onClick={onClick}>
+    <button
+      className={className}
+      type={type}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   );

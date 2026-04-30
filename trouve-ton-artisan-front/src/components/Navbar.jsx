@@ -27,14 +27,28 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`custom-navbar ${menuOpen ? "menu-open" : ""}`}>
+    <nav 
+      className={`custom-navbar ${menuOpen ? "menu-open" : ""}`}
+      aria-label="Navigation principale"
+    >
 
       {/* ligne mobile */}
       <div className="mobile-actions d-flex justify-content-end d-lg-none">
-        <button className="search-toggle" onClick={toggleSearch}>
+
+        <button 
+          className="search-toggle" 
+          onClick={toggleSearch}
+          aria-label="Ouvrir la recherche"
+          aria-expanded={searchOpen}
+        >
           <SearchIcon />
         </button>
-        <MenuButton toggleMenu={toggleMenu} isOpen={menuOpen} />
+
+        <MenuButton 
+          toggleMenu={toggleMenu} 
+          isOpen={menuOpen} 
+          aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        />
       </div>
 
       {searchOpen && (
@@ -42,6 +56,7 @@ const Navbar = () => {
           <div
             className="overlay"
             onClick={() => setSearchOpen(false)}
+            aria-hidden="true"
           ></div>
 
           <div className="mobile-search d-lg-none">
@@ -51,16 +66,22 @@ const Navbar = () => {
       )}
       
       {menuOpen && 
-        <div className="overlay d-lg-none" onClick={toggleMenu}></div>
+        <div 
+          className="overlay d-lg-none"
+          onClick={toggleMenu}></div>
       }
 
-      <div className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}>
+      <div
+        className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}
+        aria-label="Menu mobile"
+      >
         <ul>
           {categories.map((cat) => (
             <li key={cat.id_categorie || cat.id}>
               <NavLink
                 to={`/artisans?categorie=${cat.id_categorie || cat.id}`}
                 onClick={toggleMenu}
+                aria-label={`Catégorie ${cat.nom}`}
               >
                 {cat.nom}
               </NavLink>
@@ -75,11 +96,21 @@ const Navbar = () => {
       </div>
 
       {/* ligne menu desktop */}
-      <div className="desktop-menu d-none d-lg-block">
+      <div 
+        className="desktop-menu d-none d-lg-block"
+        aria-label="Menu principal"
+      >
         <ul className="navbar-nav flex-row align-items-center">
           {categories.map((cat, index) => (
-            <li className="nav-item d-flex align-items-center" key={cat.id_categorie || cat.id}>
-              <NavLink className="p-4" to={`/artisans?categorie=${cat.id_categorie || cat.id}`}>
+            <li 
+              className="nav-item d-flex align-items-center"
+              key={cat.id_categorie || cat.id}
+            >
+              <NavLink 
+                className="p-4"
+                to={`/artisans?categorie=${cat.id_categorie || cat.id}`}
+                aria-current={({ isActive }) => isActive ? "page" : undefined}
+              >
                 {cat.nom}
               </NavLink>
 

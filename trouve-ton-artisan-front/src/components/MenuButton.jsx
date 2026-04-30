@@ -8,6 +8,8 @@ const MenuButton = ({ toggleMenu, isOpen }) => {
         className={`menu-action ${isOpen ? "active" : ""}`}
         type="button"
         onClick={toggleMenu}
+        aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+        aria-expanded={isOpen}
       >
         <img className="menu-icon"
           src={isOpen ? crossIcon : menuIcon}

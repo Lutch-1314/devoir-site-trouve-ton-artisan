@@ -67,7 +67,7 @@ const ArtisanProfile = () => {
             <div className="artisan-img-wrapper">
               <img 
                 src={`http://localhost:3000/images/artisans/${id}.jpg`}
-                alt={artisan.nom}
+                alt={`Photo de l'artisan ${artisan.nom}`}
                 className="artisan-img"
               />
             </div>
@@ -79,16 +79,18 @@ const ArtisanProfile = () => {
 
               <span className="artisan-speciality">
                 <img className="artisan-icon"
-                    src={artisanIcon}
-                    alt="Artisan"
+                  src={artisanIcon}
+                  alt=""
+                  aria-hidden="true"
                 />
                 {artisan.specialite}
               </span>
               
               <span className="artisan-location">
                 <img className="location-icon"
-                    src={locationIcon}
-                    alt="Localisation"
+                  src={locationIcon}
+                  alt=""
+                  aria-hidden="true"
                 />
                 {artisan.ville}
               </span>
@@ -96,10 +98,11 @@ const ArtisanProfile = () => {
               {artisan.site_web && (
                 <span className="artisan-website">
                   <img className="website-icon"
-                      src={websiteIcon}
-                      alt="Site web"
+                    src={websiteIcon}
+                    alt=""
+                    aria-hidden="true"
                   />
-                  <a href={artisan.site_web} target="_blank" rel="noopener noreferrer">
+                  <a href={artisan.site_web} target="_blank" rel="noopener noreferrer" aria-label={`Site web de ${artisan.nom}`}>
                     {artisan.site_web}
                   </a>
                 </span>
@@ -109,45 +112,45 @@ const ArtisanProfile = () => {
         </div>
       </section>
 
-      <section className="section about">
+      <section className="section about" aria-labelledby="about-title">
         <div className="default-container">
 
-          <h2 className="title-deco red">À propos</h2>
+          <h2 className="title-deco red" id="about-title">À propos</h2>
 
           <p>{artisan.a_propos}</p>
 
         </div>
      </section>
 
-      <section className="section contact">
+      <section className="section contact" aria-labelledby="contact-title">
         <div className="default-container">
 
-          <h2 className="title-deco green">Contact</h2>
+          <h2 className="title-deco green" id="contact-title">Contact</h2>
 
           <form className="contact-form" onSubmit={handleSubmit} action="">
             <div className="form-field mb-4 ">
-              <label htmlFor="name" name="name" className="form-label">Nom</label>
-              <input type="text" className="form-control" id="name" required />
+              <label htmlFor="name" className="form-label">Nom</label>
+              <input id="name" name="name" type="text" className="form-control" required />
             </div>
             <div className="form-field mb-4">
               <label htmlFor="email" name="email"className="form-label">Email</label>
-              <input type="email" className="form-control" id="email" required />
+              <input id="email" name="email" type="email" className="form-control" required />
             </div>
             <div className="form-field mb-4">
               <label htmlFor="subject" name="subject"className="form-label">Objet</label>
-              <input type="text" className="form-control" id="subject" required />
+              <input id="subject" name="subject" type="text" className="form-control" required />
             </div>
             <div className="form-field mb-4">
               <label htmlFor="message" name="message" className="form-label">Message</label>
-              <textarea className="form-control" id="message" rows="5" required></textarea>
+              <textarea className="form-control" id="message" name="message" rows="5" required></textarea>
             </div>
          
             {status === "success" && (
-              <p className="form-success">Message envoyé avec succès !</p>
+              <p className="form-success" role="status" aria-live="polite">Message envoyé avec succès !</p>
             )}
 
             {status === "error" && (
-              <p className="form-error">Une erreur est survenue.</p>
+              <p className="form-error" role="status" aria-live="polite">Une erreur est survenue.</p>
             )}
 
             <Button variant="blue" type="submit">

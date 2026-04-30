@@ -59,6 +59,7 @@ const SearchBar = ({ onSelect }) => {
         <input
           type="text"
           placeholder="Rechercher par nom"
+          aria-label="Rechercher un artisan par nom"
           className="search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
@@ -71,22 +72,34 @@ const SearchBar = ({ onSelect }) => {
       </div>
 
       {/* résultats */}
-        {query && (
-          <ul className="search-results">
+        {query && filteredArtisans.length > 0 && (
+          <ul 
+            id="search-results"
+            className="search-results"
+            role="listbox"
+          >
             {filteredArtisans.map((artisan) => (
-              <li
-                key={artisan.id}
-                onClick={() => {
-                  navigate(`/artisans/${artisan.id}`);
-                  setQuery("");
-                  onSelect?.(); // ferme la barre
-                }}
-              >
-                {artisan.nom}
+              <li key={artisan.id}>
+                <button
+                  type="button"
+                  role="option"
+                  className="btn-results"
+                  onClick={() => {
+                    navigate(`/artisans/${artisan.id}`);
+                    setQuery("");
+                    onSelect?.(); // ferme la barre
+                  }}
+                >
+                  {artisan.nom}
+                </button>
               </li>
             ))}
           </ul>
         )}
+
+        {query && filteredArtisans.length === 0 && (
+        <p className="no-result">Aucun artisan trouvé.</p>
+      )}
     </div>
   );
 };

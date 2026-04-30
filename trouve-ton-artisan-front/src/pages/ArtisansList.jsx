@@ -53,9 +53,9 @@ const ArtisansList = () => {
           {currentCategory ? currentCategory.nom : "Artisans"}
         </h1>
 
-        <div className="row g-5">
+        <ul className="row g-5 list-unstyled">
           {artisans.map((artisan) => (
-            <div className="col-md-6 col-lg-4" key={artisan.id}>
+            <li className="col-md-6 col-lg-4" key={artisan.id}>
               <div className="artisan-card p-5 h-100 d-flex flex-column gap-4">
                 <h2 className="artisan-name">{artisan.nom}</h2>
 
@@ -68,26 +68,29 @@ const ArtisansList = () => {
                   <span className="artisan-speciality">
                     <img className="artisan-icon"
                         src={artisanIcon}
-                        alt="Artisan"
+                        alt="Spécialité"
                     />
                     {artisan.specialite}
                   </span>
                   <span className="artisan-location">
                     <img className="location-icon"
                         src={locationIcon}
-                        alt="Localisation"
+                        alt="Ville"
                     />
                     {artisan.ville}
                   </span>
                 </div>
                   
-                <Button link={`/artisans/${artisan.id}`}>
+                <Button 
+                  link={`/artisans/${artisan.id}`}
+                  aria-label={`Voir la fiche de ${artisan.nom}`}
+                >
                   Voir la fiche complète <span className="arrow">➔</span>
                 </Button>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul> 
       </div>
     </section>
   );

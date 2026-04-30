@@ -11,7 +11,7 @@ const TopArtisans = () => {
   const { artisans, loading } = useTopArtisans();
 
   if (loading) {
-    return <p>Chargement des artisans...</p>;
+    return <p role="status">Chargement des artisans...</p>;
   }
 
   return (
@@ -21,7 +21,7 @@ const TopArtisans = () => {
 
         <h2 className="title-deco green">Les 3 artisans du mois</h2>
 
-        <div id="artisanCarousel" className="carousel slide">
+        <div id="artisanCarousel" className="carousel slide" aria-label="Top artisans">
 
           <div className="carousel-inner">
 
@@ -80,16 +80,18 @@ const TopArtisans = () => {
               type="button"
               data-bs-target="#artisanCarousel"
               data-bs-slide="prev"
+              aria-label="Artisan précédent"
             >
-              <img src={arrowLeft} alt="Précédent" />
+              <img src={arrowLeft} alt="" />
             </button>
             <button
               className="custom-carousel-btn"
               type="button"
               data-bs-target="#artisanCarousel"
               data-bs-slide="next"
+              aria-label="Artisan suivant"
             >
-              <img src={arrowRight} alt="Suivant" />
+              <img src={arrowRight} alt="" />
             </button>
           </div>
         </div>
