@@ -40,13 +40,16 @@
 .carousel-controls {
   display: flex;
   gap: 26px;
-  margin: 74px 0 50px 24px;
+  margin: 50px 0 50px 24px;
+
+  @media (min-width: $tablet) {
+    gap: 40px;
+    margin: 50px 0 50px 40px;
+  }
 
   @media (min-width: $desktop) {
-    margin: 0;
-    padding:$padding-fluid;
-    width: 100%;
     gap: 60px;
+    margin: 50px 0 50px 60px;
   }
 }
 
@@ -60,6 +63,11 @@
   align-items: center;
   justify-content: center;
   opacity: 1;
+
+  @media (min-width: $tablet) {
+    width: 60px;
+    height: 60px;
+  }
 
   @media (min-width: $desktop) {
     width: 80px;
@@ -85,14 +93,15 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 
   @media (min-width: $tablet) {
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   @media (min-width: $desktop) {
     flex-direction: row;
-    justify-content: space-between;
+    gap: 8rem;
     max-width: 1000px;
   }
 }

@@ -1,11 +1,11 @@
 import menuIcon from "../assets/icons/menu.svg";
 import crossIcon from "../assets/icons/cross.svg";
 
-function MenuButton({ toggleMenu, isOpen }) {
+const MenuButton = ({ toggleMenu, isOpen }) => {
   return (
     <div className="menu">
       <button
-        className={`menu-action ${isOpen ? "open" : ""}`}
+        className={`menu-action ${isOpen ? "active" : ""}`}
         type="button"
         onClick={toggleMenu}
       >

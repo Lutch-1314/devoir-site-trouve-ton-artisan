@@ -40,6 +40,12 @@ const TopArtisans = () => {
                   <h3>{artisan.nom}</h3>
                   
                   <div className="artisan-infos">
+
+                    <div className="rating-wrapper">
+                      <span className="rating-value">{artisan.note}</span>
+                      <Rating value={artisan.note} />
+                    </div>
+                    
                     <span className="artisan-speciality">
                       <img className="artisan-icon"
                           src={artisanIcon}
@@ -55,11 +61,6 @@ const TopArtisans = () => {
                       />
                       {artisan.ville}
                     </span>
-                    
-                    <div className="rating-wrapper">
-                      <span className="rating-value">{artisan.note}</span>
-                      <Rating value={artisan.note} />
-                    </div>
                   </div>
 
                   <Button variant="white" link={`/artisans/${artisan.id}`}>
