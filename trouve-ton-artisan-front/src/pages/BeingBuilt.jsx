@@ -1,8 +1,9 @@
 const BeingBuilt = () => {
   return (
-    <div className="section default-container being-built">
+    <section className="section default-container being-built">
       <h1>Page en construction...</h1>
-    </div>
+      <p>Cette page sera bientôt disponible.</p>
+    </section>
   );
 };
 
