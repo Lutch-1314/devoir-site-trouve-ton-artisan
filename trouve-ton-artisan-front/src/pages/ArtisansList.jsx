@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useCategories from "../hooks/useCategories";
@@ -45,54 +46,61 @@ const ArtisansList = () => {
     : "blue";
 
   return (
-    <section className="section artisans-by-category">
+    <>
+      <Helmet>
+        <title>{currentCategory?.nom} - Trouve ton artisan</title>
+        <meta name="description" content={`Découvrez les artisans de la catégorie ${currentCategory?.nom} en Auvergne-Rhône-Alpes.`} />
+      </Helmet>
 
-      <div className="default-container">
+      <section className="section artisans-by-category">
 
-        <h1 className={`title-deco ${colorClass} mb-4`}>
-          {currentCategory ? currentCategory.nom : "Artisans"}
-        </h1>
+        <div className="default-container">
 
-        <ul className="row g-5 list-unstyled">
-          {artisans.map((artisan) => (
-            <li className="col-md-6 col-lg-4" key={artisan.id}>
-              <div className="artisan-card p-5 h-100 d-flex flex-column gap-4">
-                <h2 className="artisan-name">{artisan.nom}</h2>
+          <h1 className={`title-deco ${colorClass} mb-4`}>
+            {currentCategory ? currentCategory.nom : "Artisans"}
+          </h1>
 
-                <div className="rating-wrapper">
-                  <span className="rating-value">{artisan.note}</span>
-                  <Rating value={artisan.note} />
+          <ul className="row g-5 list-unstyled">
+            {artisans.map((artisan) => (
+              <li className="col-md-6 col-lg-4" key={artisan.id}>
+                <div className="artisan-card p-5 h-100 d-flex flex-column gap-4">
+                  <h2 className="artisan-name">{artisan.nom}</h2>
+
+                  <div className="rating-wrapper">
+                    <span className="rating-value">{artisan.note}</span>
+                    <Rating value={artisan.note} />
+                  </div>
+
+                  <div className="artisan-infos d-flex flex-column gap-4">
+                    <span className="artisan-speciality">
+                      <img className="artisan-icon"
+                          src={artisanIcon}
+                          alt="Spécialité"
+                      />
+                      {artisan.specialite}
+                    </span>
+                    <span className="artisan-location">
+                      <img className="location-icon"
+                          src={locationIcon}
+                          alt="Ville"
+                      />
+                      {artisan.ville}
+                    </span>
+                  </div>
+                    
+                  <Button 
+                    link={`/artisans/${artisan.id}`}
+                    aria-label={`Voir la fiche de ${artisan.nom}`}
+                  >
+                    Voir la fiche complète <span className="arrow">➔</span>
+                  </Button>
                 </div>
-
-                <div className="artisan-infos d-flex flex-column gap-4">
-                  <span className="artisan-speciality">
-                    <img className="artisan-icon"
-                        src={artisanIcon}
-                        alt="Spécialité"
-                    />
-                    {artisan.specialite}
-                  </span>
-                  <span className="artisan-location">
-                    <img className="location-icon"
-                        src={locationIcon}
-                        alt="Ville"
-                    />
-                    {artisan.ville}
-                  </span>
-                </div>
-                  
-                <Button 
-                  link={`/artisans/${artisan.id}`}
-                  aria-label={`Voir la fiche de ${artisan.nom}`}
-                >
-                  Voir la fiche complète <span className="arrow">➔</span>
-                </Button>
-              </div>
-            </li>
-          ))}
-        </ul> 
-      </div>
-    </section>
+              </li>
+            ))}
+          </ul> 
+        </div>
+      </section>
+    </>
   );
 };
 

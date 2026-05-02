@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# For a real site : 
+# User-agent: *
+# Allow: /

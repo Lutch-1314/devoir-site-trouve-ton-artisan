@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -35,7 +36,7 @@ const ArtisanProfile = () => {
     if (!res.ok) throw new Error("Erreur envoi");
 
     setStatus("success");
-    form.reset(); // 🔥 reset du form
+    form.reset(); // reset du form
 
   } catch (err) {
     console.error(err);
@@ -58,6 +59,11 @@ const ArtisanProfile = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{artisan.nom} - Trouve ton artisan</title>
+        <meta name="description" content={`${artisan.nom}, ${artisan.specialite} situé à ${artisan.ville}. Consultez sa fiche et contactez cet artisan facilement.`} />
+      </Helmet>
+
       <section className="section artisan-infos-profile">
         <div className="default-container">
         

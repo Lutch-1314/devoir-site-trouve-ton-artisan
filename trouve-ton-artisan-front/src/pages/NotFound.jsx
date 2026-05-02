@@ -1,14 +1,23 @@
+import { Helmet } from "react-helmet-async";
+
 const NotFound = () => {
   return (
-    <section className="section default-container not-found">
-      <h1>ERREUR 404</h1>
+    <>
+      <Helmet>
+        <title>Erreur 404 - Page introuvable</title>
+        <meta name="description" content="La page demandée est introuvable sur Trouve ton artisan." />
+      </Helmet>
 
-      <p>Désolé, mais la page que vous recherchez n'existe pas...</p>
+      <section className="section default-container not-found">
+        <h1>ERREUR 404</h1>
 
-      <img 
-        src="/404-image.png"
-        alt="Illustration page introuvable" />
-    </section>
+        <p>Désolé, mais la page que vous recherchez n'existe pas...</p>
+
+        <img 
+          src="/404-image.png"
+          alt="Illustration page introuvable" />
+      </section>
+    </>
   );
 };
 
