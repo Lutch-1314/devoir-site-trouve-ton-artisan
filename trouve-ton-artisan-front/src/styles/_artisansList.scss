@@ -2,15 +2,15 @@
 
 .artisan-card {
   background: $white-blue;
-  border-radius: 20px;  
+  border-radius: 20px;
 
   .artisan-name {
     color: $grey;
-    
+
     @media (min-width: $tablet) {
       line-height: 1.2;
       min-height: calc(2.7 * 1.2em);
-    }  
+    }
   }
 
   .btn-link {

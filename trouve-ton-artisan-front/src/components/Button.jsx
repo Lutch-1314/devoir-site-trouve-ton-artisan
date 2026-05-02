@@ -13,11 +13,7 @@ const Button = ({
   // 👉 Si on a un lien → Link
   if (link) {
     return (
-      <Link 
-        to={link}
-        className={className}
-        {...props}
-      >
+      <Link to={link} className={className} {...props}>
         {children}
       </Link>
     );
@@ -25,12 +21,7 @@ const Button = ({
 
   // 👉 Sinon → vrai bouton (important pour formulaire)
   return (
-    <button
-      className={className}
-      type={type}
-      onClick={onClick}
-      {...props}
-    >
+    <button className={className} type={type} onClick={onClick} {...props}>
       {children}
     </button>
   );

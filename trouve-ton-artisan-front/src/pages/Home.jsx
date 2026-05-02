@@ -6,7 +6,10 @@ const Home = () => {
     <>
       <Helmet>
         <title>Trouve ton artisan - Accueil</title>
-        <meta name="description" content="Trouvez facilement un artisan qualifié en Auvergne-Rhône-Alpes." />
+        <meta
+          name="description"
+          content="Trouvez facilement un artisan qualifié en Auvergne-Rhône-Alpes."
+        />
       </Helmet>
 
       <section className="section main-section">
@@ -23,7 +26,7 @@ const Home = () => {
           </ol>
         </div>
       </section>
-      
+
       <TopArtisans />
     </>
   );

@@ -21,22 +21,20 @@ const Navbar = () => {
   const categories = useCategories();
 
   useBodyScrollLock(menuOpen);
-  
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
   return (
-    <nav 
+    <nav
       className={`custom-navbar ${menuOpen ? "menu-open" : ""}`}
       aria-label="Navigation principale"
     >
-
       {/* ligne mobile */}
       <div className="mobile-actions d-flex justify-content-end d-lg-none">
-
-        <button 
-          className="search-toggle" 
+        <button
+          className="search-toggle"
           onClick={toggleSearch}
           aria-label="Ouvrir la recherche"
           aria-expanded={searchOpen}
@@ -44,9 +42,9 @@ const Navbar = () => {
           <SearchIcon />
         </button>
 
-        <MenuButton 
-          toggleMenu={toggleMenu} 
-          isOpen={menuOpen} 
+        <MenuButton
+          toggleMenu={toggleMenu}
+          isOpen={menuOpen}
           aria-label={menuOpen ? "Fermer le menu" : "Ouvrir le menu"}
         />
       </div>
@@ -64,12 +62,10 @@ const Navbar = () => {
           </div>
         </>
       )}
-      
-      {menuOpen && 
-        <div 
-          className="overlay d-lg-none"
-          onClick={toggleMenu}></div>
-      }
+
+      {menuOpen && (
+        <div className="overlay d-lg-none" onClick={toggleMenu}></div>
+      )}
 
       <div
         className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}
@@ -96,20 +92,20 @@ const Navbar = () => {
       </div>
 
       {/* ligne menu desktop */}
-      <div 
+      <div
         className="desktop-menu d-none d-lg-block"
         aria-label="Menu principal"
       >
         <ul className="navbar-nav flex-row align-items-center">
           {categories.map((cat, index) => (
-            <li 
+            <li
               className="nav-item d-flex align-items-center"
               key={cat.id_categorie || cat.id}
             >
-              <NavLink 
+              <NavLink
                 className="p-4"
                 to={`/artisans?categorie=${cat.id_categorie || cat.id}`}
-                aria-current={({ isActive }) => isActive ? "page" : undefined}
+                aria-current={({ isActive }) => (isActive ? "page" : undefined)}
               >
                 {cat.nom}
               </NavLink>
@@ -122,7 +118,6 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
-
     </nav>
   );
 };

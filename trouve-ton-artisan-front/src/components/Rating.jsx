@@ -1,7 +1,6 @@
 import Star from "./Star";
 
 const Rating = ({ value, max = 5 }) => {
-
   return (
     <div className="rating">
       {Array.from({ length: max }).map((_, i) => {

@@ -11,19 +11,16 @@ const MenuButton = ({ toggleMenu, isOpen }) => {
         aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
         aria-expanded={isOpen}
       >
-        <img className="menu-icon"
+        <img
+          className="menu-icon"
           src={isOpen ? crossIcon : menuIcon}
           alt={isOpen ? "" : "Menu"}
         />
-       
-        {!isOpen && (
-          <span className="menu-text">
-            Menu
-          </span>
-        )}
+
+        {!isOpen && <span className="menu-text">Menu</span>}
       </button>
     </div>
   );
-}
+};
 
 export default MenuButton;

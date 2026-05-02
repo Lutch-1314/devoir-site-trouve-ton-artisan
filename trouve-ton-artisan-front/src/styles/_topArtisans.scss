@@ -31,9 +31,9 @@
 
   .artisan-icon,
   .location-icon {
-  width: 1.2em;
-  height: auto;
-  object-fit: contain;
+    width: 1.2em;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -80,7 +80,7 @@
     margin: 8px;
 
     @media (min-width: $desktop) {
-    margin: 16px;
+      margin: 16px;
     }
   }
 

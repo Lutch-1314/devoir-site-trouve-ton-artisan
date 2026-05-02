@@ -4,7 +4,6 @@ import SearchIcon from "./SearchIcon";
 import "../styles/_searchBar.scss";
 
 const SearchBar = ({ onSelect }) => {
-
   const [artisans, setArtisans] = useState([]);
   const [query, setQuery] = useState("");
 
@@ -14,24 +13,24 @@ const SearchBar = ({ onSelect }) => {
 
   useEffect(() => {
     fetch("http://localhost:3000/api/artisans/noms")
-      .then(res => res.json())
-      .then(data => setArtisans(data));
+      .then((res) => res.json())
+      .then((data) => setArtisans(data));
   }, []);
 
   useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-      setQuery("");
-      onSelect?.(); // ferme si besoin
-    }
-  };
+    const handleClickOutside = (event) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setQuery("");
+        onSelect?.(); // ferme si besoin
+      }
+    };
 
-  document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-  }, []);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [onSelect]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -55,7 +54,6 @@ const SearchBar = ({ onSelect }) => {
   return (
     <div className="search-bar" ref={wrapperRef}>
       <div className="search-input-wrapper">
-
         <input
           type="text"
           placeholder="Rechercher par nom"
@@ -68,36 +66,31 @@ const SearchBar = ({ onSelect }) => {
         <div className="search-icon-container">
           <SearchIcon />
         </div>
-
       </div>
 
       {/* résultats */}
-        {query && filteredArtisans.length > 0 && (
-          <ul 
-            id="search-results"
-            className="search-results"
-            role="listbox"
-          >
-            {filteredArtisans.map((artisan) => (
-              <li key={artisan.id}>
-                <button
-                  type="button"
-                  role="option"
-                  className="btn-results"
-                  onClick={() => {
-                    navigate(`/artisans/${artisan.id}`);
-                    setQuery("");
-                    onSelect?.(); // ferme la barre
-                  }}
-                >
-                  {artisan.nom}
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+      {query && filteredArtisans.length > 0 && (
+        <ul id="search-results" className="search-results" role="listbox">
+          {filteredArtisans.map((artisan) => (
+            <li key={artisan.id}>
+              <button
+                type="button"
+                role="option"
+                className="btn-results"
+                onClick={() => {
+                  navigate(`/artisans/${artisan.id}`);
+                  setQuery("");
+                  onSelect?.(); // ferme la barre
+                }}
+              >
+                {artisan.nom}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
 
-        {query && filteredArtisans.length === 0 && (
+      {query && filteredArtisans.length === 0 && (
         <p className="no-result">Aucun artisan trouvé.</p>
       )}
     </div>

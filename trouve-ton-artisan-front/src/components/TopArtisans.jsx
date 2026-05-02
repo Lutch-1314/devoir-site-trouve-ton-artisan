@@ -16,48 +16,47 @@ const TopArtisans = () => {
 
   return (
     <section className="section top-artisans">
-
       <div className="default-container">
-
         <h2 className="title-deco green">Les 3 artisans du mois</h2>
 
-        <div id="artisanCarousel" className="carousel slide" aria-label="Top artisans">
-
+        <div
+          id="artisanCarousel"
+          className="carousel slide"
+          aria-label="Top artisans"
+        >
           <div className="carousel-inner">
-
             {artisans.map((artisan, index) => (
-
               <div
                 key={artisan.id_artisan}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
                 <div className="artisan-top">
-
                   <p className="artisan-position h3 fw-bold">
                     {index + 1}/{artisans.length}
                   </p>
 
                   <h3>{artisan.nom}</h3>
-                  
-                  <div className="artisan-infos">
 
+                  <div className="artisan-infos">
                     <div className="rating-wrapper">
                       <span className="rating-value">{artisan.note}</span>
                       <Rating value={artisan.note} />
                     </div>
-                    
+
                     <span className="artisan-speciality">
-                      <img className="artisan-icon"
-                          src={artisanIcon}
-                          alt="Artisan"
+                      <img
+                        className="artisan-icon"
+                        src={artisanIcon}
+                        alt="Artisan"
                       />
                       {artisan.specialite}
                     </span>
-                    
+
                     <span className="artisan-location">
-                      <img className="location-icon"
-                          src={locationIcon}
-                          alt="Localisation"
+                      <img
+                        className="location-icon"
+                        src={locationIcon}
+                        alt="Localisation"
                       />
                       {artisan.ville}
                     </span>
@@ -66,15 +65,11 @@ const TopArtisans = () => {
                   <Button variant="white" link={`/artisans/${artisan.id}`}>
                     Voir la fiche
                   </Button>
-
                 </div>
-                
               </div>
-              
             ))}
-            
           </div>
-          <div className="carousel-controls">   
+          <div className="carousel-controls">
             <button
               className="custom-carousel-btn"
               type="button"

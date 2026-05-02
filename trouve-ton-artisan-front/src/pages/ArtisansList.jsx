@@ -22,7 +22,9 @@ const ArtisansList = () => {
   useEffect(() => {
     const fetchArtisans = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/artisans?categorie=${categorieId}`);
+        const response = await fetch(
+          `http://localhost:3000/api/artisans?categorie=${categorieId}`
+        );
         const data = await response.json();
 
         setArtisans(data);
@@ -35,10 +37,10 @@ const ArtisansList = () => {
   }, [categorieId]);
 
   const categoryColors = {
-    "Bâtiment": "red",
-    "Alimentation": "red",
-    "Services": "green",
-    "Fabrication": "blue",
+    Bâtiment: "red",
+    Alimentation: "red",
+    Services: "green",
+    Fabrication: "blue",
   };
 
   const colorClass = currentCategory
@@ -49,13 +51,14 @@ const ArtisansList = () => {
     <>
       <Helmet>
         <title>{currentCategory?.nom} - Trouve ton artisan</title>
-        <meta name="description" content={`Découvrez les artisans de la catégorie ${currentCategory?.nom} en Auvergne-Rhône-Alpes.`} />
+        <meta
+          name="description"
+          content={`Découvrez les artisans de la catégorie ${currentCategory?.nom} en Auvergne-Rhône-Alpes.`}
+        />
       </Helmet>
 
       <section className="section artisans-by-category">
-
         <div className="default-container">
-
           <h1 className={`title-deco ${colorClass} mb-4`}>
             {currentCategory ? currentCategory.nom : "Artisans"}
           </h1>
@@ -73,22 +76,24 @@ const ArtisansList = () => {
 
                   <div className="artisan-infos d-flex flex-column gap-4">
                     <span className="artisan-speciality">
-                      <img className="artisan-icon"
-                          src={artisanIcon}
-                          alt="Spécialité"
+                      <img
+                        className="artisan-icon"
+                        src={artisanIcon}
+                        alt="Spécialité"
                       />
                       {artisan.specialite}
                     </span>
                     <span className="artisan-location">
-                      <img className="location-icon"
-                          src={locationIcon}
-                          alt="Ville"
+                      <img
+                        className="location-icon"
+                        src={locationIcon}
+                        alt="Ville"
                       />
                       {artisan.ville}
                     </span>
                   </div>
-                    
-                  <Button 
+
+                  <Button
                     link={`/artisans/${artisan.id}`}
                     aria-label={`Voir la fiche de ${artisan.nom}`}
                   >
@@ -97,7 +102,7 @@ const ArtisansList = () => {
                 </div>
               </li>
             ))}
-          </ul> 
+          </ul>
         </div>
       </section>
     </>

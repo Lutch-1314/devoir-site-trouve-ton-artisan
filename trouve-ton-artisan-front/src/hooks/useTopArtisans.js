@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopArtisans } from "../services/api";
 
 const useTopArtisans = () => {
-  const [artisans, setArtisans] = useState([])
+  const [artisans, setArtisans] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

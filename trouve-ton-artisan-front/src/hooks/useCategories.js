@@ -7,8 +7,8 @@ const useCategories = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-      const categoriesData = await getCategories();
-      setCategories(categoriesData);
+        const categoriesData = await getCategories();
+        setCategories(categoriesData);
       } catch (err) {
         console.error("Erreur lors de la récupération des catégories :", err);
       }
@@ -17,7 +17,7 @@ const useCategories = () => {
     fetchCategories();
   }, []);
 
-    return categories;
+  return categories;
 };
 
 export default useCategories;

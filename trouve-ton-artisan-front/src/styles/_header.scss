@@ -13,9 +13,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-   
-    .logo {
+
+  .logo {
     width: clamp(200px, 25vw, 400px);
     height: auto;
-    }
   }
+}

@@ -60,7 +60,8 @@ body.no-scroll {
   touch-action: none;
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: 900;
   color: $dark-blue;
   padding-bottom: 1.625rem;
@@ -68,7 +69,7 @@ h1, h2 {
 
 h3 {
   font-weight: 700;
-  color : $grey;
+  color: $grey;
 }
 
 p {
@@ -85,7 +86,7 @@ p {
   position: relative;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -97,7 +98,6 @@ p {
 }
 
 .title-deco {
-
   &::before {
     content: "";
     display: block;

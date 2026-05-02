@@ -62,11 +62,11 @@
 
 .search-results {
   position: absolute;
-  top: 100%; 
+  top: 100%;
   left: 0;
   right: 0;
   z-index: 300;
-  
+
   background: $white;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -82,7 +82,7 @@
 }
 
 .search-results li:hover {
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .btn-results {
