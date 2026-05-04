@@ -61,25 +61,23 @@ const Navbar = () => {
         />
       </div>
 
-{(searchOpen || menuOpen) && (
-  <div
-    className="overlay"
-    onClick={() => {
-      setSearchOpen(false);
-      setMenuOpen(false);
-    }}
-    aria-hidden="true"
-  />
-)}
-{searchOpen && (
-  <div className="mobile-search d-lg-none">
-    <SearchBar onSelect={() => setSearchOpen(false)} />
-  </div>
-)}
+      {(searchOpen || menuOpen) && (
+        <div
+          className="overlay"
+          onClick={() => {
+            setSearchOpen(false);
+            setMenuOpen(false);
+          }}
+          aria-hidden="true"
+        />
+      )}
+      {searchOpen && (
+        <div className="mobile-search d-lg-none">
+          <SearchBar onSelect={() => setSearchOpen(false)} />
+        </div>
+      )}
 
-     
-
-      <div
+      <nav  
         ref={menuRef}
         className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}
         aria-label="Menu mobile"
@@ -97,7 +95,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
 
       {/* ligne recherche desktop */}
       <div className="desktop-search d-none d-lg-flex ms-auto">
@@ -105,7 +103,7 @@ const Navbar = () => {
       </div>
 
       {/* ligne menu desktop */}
-      <div
+      <nav
         className="desktop-menu d-none d-lg-block"
         aria-label="Menu principal"
       >
@@ -130,7 +128,7 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </nav>
     </nav>
   );
 };

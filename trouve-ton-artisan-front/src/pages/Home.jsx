@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Trouve ton artisan - Accueil</title>
+        <title>Trouve ton artisan - Annuaire d'artisans en Auvergne-Rhône-Alpes</title>
         <meta
           name="description"
           content="Trouvez facilement un artisan qualifié en Auvergne-Rhône-Alpes."

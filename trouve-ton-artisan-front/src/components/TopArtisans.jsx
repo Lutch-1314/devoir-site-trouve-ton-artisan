@@ -16,82 +16,80 @@ const TopArtisans = () => {
   }
 
   return (
-    <section className="section top-artisans">
-      <div className="default-container">
-        <h2 className="title-deco green">Les 3 artisans du mois</h2>
+    <section className="section default-container top-artisans">
+      <h2 className="title-deco green">Les 3 artisans du mois</h2>
 
-        <div
-          id="artisanCarousel"
-          className="carousel slide"
-          aria-label="Top artisans"
-        >
-          <div className="carousel-inner">
-            {artisans.map((artisan, index) => (
-              <div
-                key={artisan.id_artisan}
-                className={`carousel-item ${index === 0 ? "active" : ""}`}
-              >
-                <div className="artisan-top">
-                  <p className="artisan-position h3 fw-bold">
-                    {index + 1}/{artisans.length}
-                  </p>
+      <section
+        id="artisanCarousel"
+        className="carousel slide"
+        aria-label="Top artisans"
+      >
+        <div className="carousel-inner">
+          {artisans.map((artisan, index) => (
+            <div
+              key={artisan.id_artisan}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+            >
+              <div className="artisan-top">
+                <p className="artisan-position h3 fw-bold">
+                  {index + 1}/{artisans.length}
+                </p>
 
-                  <h3>{artisan.nom}</h3>
+                <h3>{artisan.nom}</h3>
 
-                  <div className="artisan-infos">
-                    <div className="rating-wrapper">
-                      <span className="rating-value">{artisan.note}</span>
-                      <Rating value={artisan.note} />
-                    </div>
-
-                    <span className="artisan-speciality">
-                      <img
-                        className="artisan-icon"
-                        src={artisanIcon}
-                        alt="Artisan"
-                      />
-                      {artisan.specialite}
-                    </span>
-
-                    <span className="artisan-location">
-                      <img
-                        className="location-icon"
-                        src={locationIcon}
-                        alt="Localisation"
-                      />
-                      {artisan.ville}
-                    </span>
+                <div className="artisan-infos">
+                  <div className="rating-wrapper">
+                    <span className="rating-value">{artisan.note}</span>
+                    <Rating value={artisan.note} />
                   </div>
 
-                  <Button variant="white" link={`/artisans/${artisan.id}`}>
-                    Voir la fiche
-                  </Button>
+                  <span className="artisan-speciality">
+                    <img
+                      className="artisan-icon"
+                      src={artisanIcon}
+                      alt="Artisan"
+                    />
+                    {artisan.specialite}
+                  </span>
+
+                  <span className="artisan-location">
+                    <img
+                      className="location-icon"
+                      src={locationIcon}
+                      alt="Localisation"
+                    />
+                    {artisan.ville}
+                  </span>
                 </div>
+
+                <Button variant="white" link={`/artisans/${artisan.id}`}>
+                  Voir la fiche
+                </Button>
               </div>
-            ))}
-          </div>
-          <div className="carousel-controls">
-            <button
-              className="custom-carousel-btn"
-              type="button"
-              data-bs-target="#artisanCarousel"
-              data-bs-slide="prev"
-              aria-label="Artisan précédent"
-            >
-              <img src={arrowLeft} alt="" />
-            </button>
-            <button
-              className="custom-carousel-btn"
-              type="button"
-              data-bs-target="#artisanCarousel"
-              data-bs-slide="next"
-              aria-label="Artisan suivant"
-            >
-              <img src={arrowRight} alt="" />
-            </button>
-          </div>
+            </div>
+          ))}
         </div>
-      </div>
+        <div className="carousel-controls">
+          <button
+            className="custom-carousel-btn"
+            type="button"
+            data-bs-target="#artisanCarousel"
+            data-bs-slide="prev"
+            aria-label="Artisan précédent"
+          >
+            <img src={arrowLeft} alt="" />
+          </button>
+          <button
+            className="custom-carousel-btn"
+            type="button"
+            data-bs-target="#artisanCarousel"
+            data-bs-slide="next"
+            aria-label="Artisan suivant"
+          >
+            <img src={arrowRight} alt="" />
+          </button>
+        </div>
+      </section>
     </section>
   );
 };
