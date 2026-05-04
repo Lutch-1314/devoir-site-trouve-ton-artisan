@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useCategories from "../hooks/useCategories";
+import useArtisansByCategory from "../hooks/useArtisansByCategory";
 
 import Rating from "../components/Rating";
 import Button from "../components/Button";
@@ -11,30 +11,20 @@ import locationIcon from "../assets/icons/location.svg";
 const ArtisansList = () => {
   const categories = useCategories();
   const [searchParams] = useSearchParams();
-
   const categorieId = searchParams.get("categorie");
+  const artisans = useArtisansByCategory(categorieId);
 
-  const currentCategory = categories.find(
+  const currentCategory = categories?.find(
     (cat) => String(cat.id_categorie || cat.id) === categorieId
   );
-  const [artisans, setArtisans] = useState([]);
 
-  useEffect(() => {
-    const fetchArtisans = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/api/artisans?categorie=${categorieId}`
-        );
-        const data = await response.json();
+  const pageTitle = currentCategory
+    ? `${currentCategory.nom} - Trouve ton artisan`
+    : "Artisans - Trouve ton artisan";
 
-        setArtisans(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchArtisans();
-  }, [categorieId]);
+  const pageDescription = currentCategory
+    ? `Découvrez les artisans de la catégorie ${currentCategory.nom} en Auvergne-Rhône-Alpes.`
+    : "Découvrez les artisans en Auvergne-Rhône-Alpes.";
 
   const categoryColors = {
     Bâtiment: "red",
@@ -50,11 +40,8 @@ const ArtisansList = () => {
   return (
     <>
       <Helmet>
-        <title>{currentCategory?.nom} - Trouve ton artisan</title>
-        <meta
-          name="description"
-          content={`Découvrez les artisans de la catégorie ${currentCategory?.nom} en Auvergne-Rhône-Alpes.`}
-        />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
       </Helmet>
 
       <section className="section artisans-by-category">
@@ -83,6 +70,7 @@ const ArtisansList = () => {
                       />
                       {artisan.specialite}
                     </span>
+
                     <span className="artisan-location">
                       <img
                         className="location-icon"

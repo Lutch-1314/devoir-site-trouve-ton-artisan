@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import useArtisanById from "../hooks/useArtisanById";
+import useContactForm from "../hooks/useContactForm";
 
 import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
@@ -10,52 +12,10 @@ import Button from "../components/Button";
 
 const ArtisanProfile = () => {
   const { id } = useParams();
-  const [status, setStatus] = useState(null);
+  const { artisan, loading } = useArtisanById(id);
+  const { status, handleSubmit } = useContactForm(id);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    const form = e.target;
-
-    const formData = {
-      name: e.target.name.value,
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
-    };
-
-    try {
-      const res = await fetch(
-        `http://localhost:3000/api/artisans/${id}/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      if (!res.ok) throw new Error("Erreur envoi");
-
-      setStatus("success");
-      form.reset(); // reset du form
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
-
-  const [artisan, setArtisan] = useState(null);
-
-  useEffect(() => {
-    fetch(`http://localhost:3000/api/artisans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setArtisan(data))
-      .catch((err) => console.error(err));
-  }, [id]);
-
-  if (!artisan) {
+  if (loading) {
     return <p>Chargement...</p>;
   }
 

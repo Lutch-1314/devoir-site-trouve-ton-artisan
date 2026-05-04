@@ -1,51 +1,30 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import useClickOutside from "../hooks/useClickOutside";
+import useEscapeKey from "../hooks/useEscapeKey";
+import useAllArtisans from "../hooks/useAllArtisans";
 import SearchIcon from "./SearchIcon";
 import "../styles/_searchBar.scss";
 
 const SearchBar = ({ onSelect }) => {
-  const [artisans, setArtisans] = useState([]);
+  
   const [query, setQuery] = useState("");
 
   const wrapperRef = useRef(null);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/artisans/noms")
-      .then((res) => res.json())
-      .then((data) => setArtisans(data));
-  }, []);
+  const { artisans = [] } = useAllArtisans();
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
-        setQuery("");
-        onSelect?.(); // ferme si besoin
-      }
-    };
+  useClickOutside(wrapperRef, () => {
+    setQuery("");
+    onSelect?.();
+  });
 
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onSelect]);
-
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        setQuery("");
-        onSelect?.();
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [onSelect]);
+  useEscapeKey(() => {
+    setQuery("");
+    onSelect?.();
+  });
 
   const filteredArtisans = artisans.filter((artisan) =>
     artisan.nom.toLowerCase().startsWith(query.toLowerCase())

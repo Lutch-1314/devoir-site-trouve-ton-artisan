@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-
+import { useState, useRef } from "react";
+import useClickOutside from "../hooks/useClickOutside";
+import useEscapeKey from "../hooks/useEscapeKey";
 import SearchBar from "./SearchBar";
 import SearchIcon from "./SearchIcon";
 import MenuButton from "./MenuButton";
@@ -25,6 +26,16 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const menuRef = useRef(null);
+
+  useClickOutside(menuRef, () => {
+    if (menuOpen) setMenuOpen(false);
+  });
+
+  useEscapeKey(() => {
+    if (menuOpen) setMenuOpen(false);
+  });
 
   return (
     <nav
@@ -63,11 +74,10 @@ const Navbar = () => {
         </>
       )}
 
-      {menuOpen && (
-        <div className="overlay d-lg-none" onClick={toggleMenu}></div>
-      )}
+      {menuOpen && <div className="overlay d-lg-none" aria-hidden="true"></div>}
 
       <div
+        ref={menuRef}
         className={`mobile-menu d-lg-none ${menuOpen ? "open" : ""}`}
         aria-label="Menu mobile"
       >
