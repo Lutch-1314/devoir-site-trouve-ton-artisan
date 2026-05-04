@@ -40,11 +40,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`custom-navbar ${menuOpen ? "menu-open" : ""}`}
+      className={`custom-navbar ms-auto ${menuOpen ? "menu-open" : ""}`}
       aria-label="Navigation principale"
     >
       {/* ligne mobile */}
-      <div className="mobile-actions d-flex justify-content-end d-lg-none">
+      <div className="mobile-actions d-flex align-items-center gap-2 d-lg-none">
         <button
           className="search-toggle"
           onClick={toggleSearch}
@@ -61,21 +61,23 @@ const Navbar = () => {
         />
       </div>
 
-      {searchOpen && (
-        <>
-          <div
-            className="overlay"
-            onClick={() => setSearchOpen(false)}
-            aria-hidden="true"
-          ></div>
+{(searchOpen || menuOpen) && (
+  <div
+    className="overlay"
+    onClick={() => {
+      setSearchOpen(false);
+      setMenuOpen(false);
+    }}
+    aria-hidden="true"
+  />
+)}
+{searchOpen && (
+  <div className="mobile-search d-lg-none">
+    <SearchBar onSelect={() => setSearchOpen(false)} />
+  </div>
+)}
 
-          <div className="mobile-search d-lg-none">
-            <SearchBar onSelect={() => setSearchOpen(false)} />
-          </div>
-        </>
-      )}
-
-      {menuOpen && <div className="overlay d-lg-none" aria-hidden="true"></div>}
+     
 
       <div
         ref={menuRef}

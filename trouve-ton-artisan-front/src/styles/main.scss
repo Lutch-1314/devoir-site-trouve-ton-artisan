@@ -2,15 +2,20 @@
 
 @use "variables" as *;
 @use "layout";
-@use "home";
+
 @use "header";
 @use "footer";
-@use "searchBar";
+
 @use "navbar";
+@use "menuButton";
+@use "searchBar";
+@use "searchIcon";
 @use "topArtisans";
+@use "button";
 @use "rating";
 @use "star";
-@use "button";
+
+@use "home";
 @use "artisansList";
 @use "artisanProfile";
 @use "beingBuilt";
@@ -55,9 +60,6 @@ body {
 
 body.no-scroll {
   overflow: hidden;
-  position: fixed;
-  width: 100%;
-  touch-action: none;
 }
 
 h1,

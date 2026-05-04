@@ -1,0 +1,30 @@
+@use "variables" as *;
+.search-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  @media (max-width: 360px) {
+    width: 35px;
+    height: 35px;
+  }
+
+   &:hover {
+    background-color: $dark-blue;
+    .search-icon {
+      color: white;
+    }
+}
+
+ .search-icon {
+    color: $blue;
+    width: 40px;
+    height: 40px;
+  }
+}

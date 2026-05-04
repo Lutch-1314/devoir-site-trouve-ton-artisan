@@ -44,7 +44,7 @@ const SearchBar = ({ onSelect }) => {
           onChange={(e) => setQuery(e.target.value)}
         />
 
-        <div className="search-icon-container">
+        <div className="search-icon-container d-none d-lg-block">
           <SearchIcon />
         </div>
       </div>
