@@ -1,12 +1,15 @@
 import { Helmet } from "react-helmet-async";
 import { useSearchParams } from "react-router-dom";
-import useCategories from "../hooks/useCategories";
-import useArtisansByCategory from "../hooks/useArtisansByCategory";
 
-import Rating from "../components/Rating";
+import useArtisansByCategory from "../hooks/useArtisansByCategory";
+import useCategories from "../hooks/useCategories";
+
 import Button from "../components/Button";
+import Rating from "../components/Rating";
+
 import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
+
 
 const ArtisansList = () => {
   const categories = useCategories();

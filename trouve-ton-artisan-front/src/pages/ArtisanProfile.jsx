@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import useArtisanById from "../hooks/useArtisanById";
 import useContactForm from "../hooks/useContactForm";
 
+import Button from "../components/Button";
+import Rating from "../components/Rating";
+
 import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
 import websiteIcon from "../assets/icons/website.svg";
-import Rating from "../components/Rating";
-import Button from "../components/Button";
+
 
 const ArtisanProfile = () => {
   const { id } = useParams();

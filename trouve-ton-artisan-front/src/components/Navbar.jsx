@@ -1,13 +1,14 @@
-import { NavLink } from "react-router-dom";
 import { useState, useRef } from "react";
-import useClickOutside from "../hooks/useClickOutside";
-import useEscapeKey from "../hooks/useEscapeKey";
-import SearchBar from "./SearchBar";
-import SearchIcon from "./SearchIcon";
-import MenuButton from "./MenuButton";
+import { NavLink } from "react-router-dom";
 
 import useBodyScrollLock from "../hooks/useBodyScrollLock";
 import useCategories from "../hooks/useCategories";
+import useClickOutside from "../hooks/useClickOutside";
+import useEscapeKey from "../hooks/useEscapeKey";
+
+import MenuButton from "./MenuButton";
+import SearchBar from "./SearchBar";
+import SearchIcon from "./SearchIcon";
 
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);

@@ -1,5 +1,5 @@
-import menuIcon from "../assets/icons/menu.svg";
 import crossIcon from "../assets/icons/cross.svg";
+import menuIcon from "../assets/icons/menu.svg";
 
 const MenuButton = ({ toggleMenu, isOpen }) => {
   return (

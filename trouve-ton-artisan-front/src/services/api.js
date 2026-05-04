@@ -13,8 +13,7 @@ export const getAllArtisans = async () => {
 };
 
 export const getArtisansByCategory = async (categorieId) => {
-  const res = await fetch(
-    `${API_URL}/artisans?categorie=${categorieId}`);
+  const res = await fetch(`${API_URL}/artisans?categorie=${categorieId}`);
 
   if (!res.ok) throw new Error("Erreur lors de la récupération des artisans");
 
@@ -50,5 +49,3 @@ export const getCategories = async () => {
 
   return res.json();
 };
-
-

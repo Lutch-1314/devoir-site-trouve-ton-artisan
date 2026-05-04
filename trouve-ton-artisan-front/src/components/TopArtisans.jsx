@@ -1,11 +1,12 @@
+import useTopArtisans from "../hooks/useTopArtisans";
+
+import arrowLeft from "../assets/icons/arrow-left.svg";
+import arrowRight from "../assets/icons/arrow-right.svg";
 import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
-import arrowRight from "../assets/icons/arrow-right.svg";
-import arrowLeft from "../assets/icons/arrow-left.svg";
-import Rating from "./Rating";
-import Button from "./Button";
 
-import useTopArtisans from "../hooks/useTopArtisans";
+import Button from "./Button";
+import Rating from "./Rating";
 
 const TopArtisans = () => {
   const { artisans, loading } = useTopArtisans();

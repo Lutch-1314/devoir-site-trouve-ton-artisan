@@ -1,8 +1,10 @@
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+
+import useAllArtisans from "../hooks/useAllArtisans";
 import useClickOutside from "../hooks/useClickOutside";
 import useEscapeKey from "../hooks/useEscapeKey";
-import useAllArtisans from "../hooks/useAllArtisans";
+
 import SearchIcon from "./SearchIcon";
 import "../styles/_searchBar.scss";
 

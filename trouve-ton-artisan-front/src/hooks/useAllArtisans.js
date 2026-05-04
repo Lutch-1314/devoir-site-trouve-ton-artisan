@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+
 import { getAllArtisans } from "../services/api";
 
 const useAllArtisans = () => {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import { getTopArtisans } from "../services/api";
 
 const useTopArtisans = () => {

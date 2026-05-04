@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+
 import TopArtisans from "../components/TopArtisans";
 
 const Home = () => {
