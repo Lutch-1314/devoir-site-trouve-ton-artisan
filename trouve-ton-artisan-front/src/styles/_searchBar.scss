@@ -6,21 +6,26 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 8px;
-}
-.search-input-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 8px;
-  padding: 2px 20px;
-  border-right: 1px solid $blue;
-  border-bottom: 1px solid $blue;
 
-  .search-input {
+  .search-input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    color: $grey;
-    border: none;
+    gap: 8px;
+    padding: 2px 20px;
+    border-right: 1px solid $blue;
+    border-bottom: 1px solid $blue;
+
+    .search-input {
+      width: 100%;
+      color: $grey;
+      border: none;
+    }
+
+    .search-icon-container {
+      pointer-events: none;
+    }
   }
 }
 
@@ -46,6 +51,7 @@
     &:hover {
       background-color: rgba(0, 0, 0, 0.05);
     }
+
     .btn-results {
       background: none;
       border: none;
