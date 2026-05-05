@@ -27,7 +27,7 @@ const TopArtisans = () => {
         <div className="carousel-inner">
           {artisans.map((artisan, index) => (
             <div
-              key={artisan.id_artisan}
+              key={artisan.id}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
               <div className="artisan-top">

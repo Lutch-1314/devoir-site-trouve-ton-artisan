@@ -7,18 +7,22 @@ const useTopArtisans = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchArtisans = async () => {
-      try {
-        const data = await getTopArtisans();
-        setArtisans(data);
-      } catch (error) {
-        console.error("Erreur API :", error);
-      } finally {
-        setLoading(false);
-      }
-    };
+    let isMounted = true;
 
-    fetchArtisans();
+    getTopArtisans()
+      .then((data) => {
+        if (isMounted) setArtisans(data);
+      })
+      .catch((error) => {
+        console.error("Erreur API :", error);
+      })
+      .finally(() => {
+        if (isMounted) setLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   return { artisans, loading };

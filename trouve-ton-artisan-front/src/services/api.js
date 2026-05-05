@@ -1,51 +1,40 @@
-const API_URL = "http://localhost:3000/api";
+const API_URL = import.meta.env.VITE_API_URL;
 
-/* ARTISANS */
+if (!API_URL) {
+  console.error("VITE_API_URL non défini");
+}
 
-export const getAllArtisans = async () => {
-  const res = await fetch(`${API_URL}/artisans/noms`);
+const fetchAPI = async (url, options = {}) => {
+  const res = await fetch(url, options);
 
   if (!res.ok) {
-    throw new Error("Erreur lors de la récupération des artisans");
+    const errorText = await res.text();
+    throw new Error(errorText || `Erreur ${res.status}`);
   }
 
   return res.json();
 };
 
-export const getArtisansByCategory = async (categorieId) => {
-  const res = await fetch(`${API_URL}/artisans?categorie=${categorieId}`);
+export const getCategories = () =>
+  fetchAPI(`${API_URL}/categories`);
 
-  if (!res.ok) throw new Error("Erreur lors de la récupération des artisans");
+export const getAllArtisans = () =>
+  fetchAPI(`${API_URL}/artisans/noms`);
 
-  return res.json();
-};
+export const getArtisansByCategory = (categorieId) =>
+  fetchAPI(`${API_URL}/artisans?categorie=${categorieId}`);
 
-export const getArtisanById = async (id) => {
-  const res = await fetch(`${API_URL}/artisans/${id}`);
+export const getArtisanById = (id) =>
+  fetchAPI(`${API_URL}/artisans/${id}`);
 
-  if (!res.ok) throw new Error("Erreur lors de la récupération de l'artisan");
+export const getTopArtisans = () =>
+  fetchAPI(`${API_URL}/artisans/top`);
 
-  return res.json();
-};
-
-export const getTopArtisans = async () => {
-  const res = await fetch(`${API_URL}/artisans/top`);
-
-  if (!res.ok) {
-    throw new Error("Erreur lors de la récupération des artisans");
-  }
-
-  return res.json();
-};
-
-/* CATEGORIES */
-
-export const getCategories = async () => {
-  const res = await fetch(`${API_URL}/categories`);
-
-  if (!res.ok) {
-    throw new Error("Erreur lors de la récupération des catégories");
-  }
-
-  return res.json();
-};
+export const sendContactForm = (id, formData) =>
+  fetchAPI(`${API_URL}/artisans/${id}/contact`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });

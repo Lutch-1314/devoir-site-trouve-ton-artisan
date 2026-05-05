@@ -1,27 +1,31 @@
 import { useEffect, useState } from "react";
 
+import { getArtisansByCategory } from "../services/api";
+
 const useArtisansByCategory = (categorieId) => {
   const [artisans, setArtisans] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (!categorieId) return;
 
-    const fetchArtisans = async () => {
-      try {
-        const response = await fetch(
-          `http://localhost:3000/api/artisans?categorie=${categorieId}`
-        );
-        const data = await response.json();
-        setArtisans(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+    let isMounted = true;
 
-    fetchArtisans();
+    getArtisansByCategory(categorieId)
+      .then((data) => {
+        if (isMounted) setArtisans(data);
+      })
+      .catch(console.error)
+      .finally(() => {
+        if (isMounted) setLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, [categorieId]);
 
-  return artisans;
+  return { artisans, loading };
 };
 
 export default useArtisansByCategory;

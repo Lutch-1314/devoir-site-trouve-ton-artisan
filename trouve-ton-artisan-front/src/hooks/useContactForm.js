@@ -1,7 +1,10 @@
 import { useState } from "react";
 
+import { sendContactForm } from "../services/api";
+
 const useContactForm = (id) => {
   const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,27 +19,20 @@ const useContactForm = (id) => {
     };
 
     try {
-      const res = await fetch(
-        `http://localhost:3000/api/artisans/${id}/contact`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      setLoading(true);
 
-      if (!res.ok) throw new Error();
+      await sendContactForm(id, formData);
 
       setStatus("success");
       form.reset();
     } catch {
       setStatus("error");
+    } finally {
+      setLoading(false);
     }
   };
 
-  return { status, handleSubmit };
+  return { status, handleSubmit, loading };
 };
 
 export default useContactForm;
