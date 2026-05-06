@@ -122,7 +122,7 @@ const ArtisanProfile = () => {
               />
             </div>
             <div className="form-field mb-4">
-              <label htmlFor="email" name="email" className="form-label">
+              <label htmlFor="email" className="form-label">
                 Email
               </label>
               <input
@@ -134,7 +134,7 @@ const ArtisanProfile = () => {
               />
             </div>
             <div className="form-field mb-4">
-              <label htmlFor="subject" name="subject" className="form-label">
+              <label htmlFor="subject" className="form-label">
                 Objet
               </label>
               <input
@@ -146,7 +146,7 @@ const ArtisanProfile = () => {
               />
             </div>
             <div className="form-field mb-4">
-              <label htmlFor="message" name="message" className="form-label">
+              <label htmlFor="message" className="form-label">
                 Message
               </label>
               <textarea

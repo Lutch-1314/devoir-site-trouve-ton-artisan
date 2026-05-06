@@ -36,6 +36,8 @@ const SearchBar = ({ onSelect }) => {
     <div className="search-bar" ref={wrapperRef}>
       <div className="search-input-wrapper">
         <input
+          id="search"
+          name="search"
           type="text"
           placeholder="Rechercher par nom"
           aria-label="Rechercher un artisan par nom"
