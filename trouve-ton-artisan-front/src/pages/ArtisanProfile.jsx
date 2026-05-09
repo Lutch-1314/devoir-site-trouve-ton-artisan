@@ -17,6 +17,8 @@ const ArtisanProfile = () => {
   const { artisan, loading } = useArtisanById(id);
   const { status, handleSubmit } = useContactForm(id);
 
+  const API_URL = import.meta.env.VITE_API_URL;
+
   if (loading) {
     return <p>Chargement...</p>;
   }
@@ -38,7 +40,7 @@ const ArtisanProfile = () => {
           <div className="artisan-card-profile">
             <div className="artisan-img-wrapper">
               <img
-                src={`http://localhost:3000/images/artisans/${id}.jpg`}
+                src={`${API_URL}/images/artisans/${id}.jpg`}
                 alt={`Photo de l'artisan ${artisan.nom}`}
                 className="artisan-img"
               />
