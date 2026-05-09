@@ -3,10 +3,15 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://devoir-site-trouve-ton-artisan.vercel.app"
+];
 
 app.use(cors({
-  origin: "http://localhost:5173"
+  origin: allowedOrigins
 }));
 
 app.use(express.json());
@@ -30,5 +35,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Serveur démarré sur http://localhost:${PORT}`);
+  console.log(`Serveur démarré sur le port ${PORT}`);
 });
