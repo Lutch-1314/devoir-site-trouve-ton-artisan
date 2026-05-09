@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://devoir-site-trouve-ton-artisan.vercel.app"
+  "https://devoir-site-trouve-ton-artisan-q84xuat5e-lutch-1314s-projects.vercel.app"
 ];
 
 app.use(cors({
