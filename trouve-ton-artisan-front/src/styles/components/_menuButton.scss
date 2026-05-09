@@ -1,5 +1,5 @@
-
 @use "../variables" as *;
+
 .menu {
   &-action {
     display: flex;
@@ -10,13 +10,14 @@
     border: none;
     cursor: pointer;
     padding: 1rem;
+    width: 60px;
 
     &:active {
-  background-color: rgba(0, 0, 0, 0.05);
-}
+      background-color: rgba(0, 0, 0, 0.05);
+    }
   }
 
-    &-icon {
+  &-icon {
     width: 24px;
     height: 24px;
   }
@@ -28,6 +29,4 @@
     color: $blue;
     text-align: center;
   }
-
-
 }
