@@ -1,25 +1,25 @@
 @use "bootstrap/scss/bootstrap";
 
-@use "variables" as *;
-@use "layout";
+@use "./variables" as *;
+@use "./layout";
 
-@use "header";
-@use "footer";
+@use "./components/header";
+@use "./components/footer";
 
-@use "navbar";
-@use "menuButton";
-@use "searchBar";
-@use "searchIcon";
-@use "topArtisans";
-@use "button";
-@use "rating";
-@use "star";
+@use "./components/navbar";
+@use "./components/menuButton";
+@use "./components/searchBar";
+@use "./components/searchIcon";
+@use "./components/topArtisans";
+@use "./components/button";
+@use "./components/rating";
+@use "./components/star";
 
-@use "home";
-@use "artisansList";
-@use "artisanProfile";
-@use "beingBuilt";
-@use "notFound";
+@use "./pages/home";
+@use "./pages/artisansList";
+@use "./pages/artisanProfile";
+@use "./pages/beingBuilt";
+@use "./pages/notFound";
 
 @font-face {
   font-family: "Graphik";

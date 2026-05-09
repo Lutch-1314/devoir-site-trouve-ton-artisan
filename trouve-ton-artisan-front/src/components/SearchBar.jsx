@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useId } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useAllArtisans from "../hooks/useAllArtisans";
@@ -6,15 +6,15 @@ import useClickOutside from "../hooks/useClickOutside";
 import useEscapeKey from "../hooks/useEscapeKey";
 
 import SearchIcon from "./SearchIcon";
-import "../styles/_searchBar.scss";
 
 const SearchBar = ({ onSelect }) => {
-  
   const [query, setQuery] = useState("");
 
   const wrapperRef = useRef(null);
 
   const navigate = useNavigate();
+
+  const inputId = useId();
 
   const { artisans = [] } = useAllArtisans();
 
@@ -35,12 +35,16 @@ const SearchBar = ({ onSelect }) => {
   return (
     <div className="search-bar" ref={wrapperRef}>
       <div className="search-input-wrapper">
+        <label htmlFor={inputId} className="visually-hidden">
+          Rechercher un artisan
+        </label>
         <input
-          id="search"
+          id={inputId}
           name="search"
           type="text"
           placeholder="Rechercher par nom"
           aria-label="Rechercher un artisan par nom"
+          autoComplete="off"
           className="search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}

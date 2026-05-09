@@ -118,6 +118,7 @@ const ArtisanProfile = () => {
                 name="name"
                 type="text"
                 className="form-control"
+                autoComplete="name"
                 required
               />
             </div>
@@ -130,6 +131,7 @@ const ArtisanProfile = () => {
                 name="email"
                 type="email"
                 className="form-control"
+                autoComplete="email"
                 required
               />
             </div>
@@ -142,6 +144,7 @@ const ArtisanProfile = () => {
                 name="subject"
                 type="text"
                 className="form-control"
+                autoComplete="off"
                 required
               />
             </div>
@@ -155,6 +158,7 @@ const ArtisanProfile = () => {
                 name="message"
                 rows="5"
                 required
+                autoComplete="off"
               ></textarea>
             </div>
 

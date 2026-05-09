@@ -1,4 +1,4 @@
-@use "variables" as *;
+@use "../variables" as *;
 
 .star {
   width: clamp(1.3rem, 1.2rem + 0.8vw, 2rem);

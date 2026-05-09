@@ -4,7 +4,7 @@ import { getArtisansByCategory } from "../services/api";
 
 const useArtisansByCategory = (categorieId) => {
   const [artisans, setArtisans] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!categorieId) return;
