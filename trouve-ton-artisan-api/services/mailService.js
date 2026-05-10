@@ -1,18 +1,32 @@
-const nodemailer = require("nodemailer");
-const dns = require("dns");
+const brevo = require("@getbrevo/brevo");
 
-dns.setDefaultResultOrder("ipv4first");
+const apiInstance = new brevo.TransactionalEmailsApi();
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+apiInstance.setApiKey(
+  brevo.TransactionalEmailsApiApiKeys.apiKey,
+  process.env.BREVO_API_KEY,
+);
 
-exports.sendMail = (options) => {
-  return transporter.sendMail(options);
+exports.sendMail = async (options) => {
+  const sendSmtpEmail = new brevo.SendSmtpEmail();
+
+  sendSmtpEmail.subject = options.subject;
+  sendSmtpEmail.textContent = options.text;
+
+  sendSmtpEmail.sender = {
+    name: "Trouve ton artisan",
+    email: process.env.EMAIL_USER,
+  };
+
+  sendSmtpEmail.to = [
+    {
+      email: options.to,
+    },
+  ];
+
+  sendSmtpEmail.replyTo = {
+    email: options.replyTo,
+  };
+
+  return apiInstance.sendTransacEmail(sendSmtpEmail);
 };
