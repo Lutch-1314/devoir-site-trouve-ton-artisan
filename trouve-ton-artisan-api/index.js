@@ -7,11 +7,21 @@ const PORT = process.env.PORT || 3000;
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://devoir-site-trouve-ton-artisan-q84xuat5e-lutch-1314s-projects.vercel.app"
 ];
 
 app.use(cors({
-  origin: allowedOrigins
+  origin: function (origin, callback) {
+    // autorise localhost
+    if (!origin) return callback(null, true);
+
+    // autorise Vercel (tous les déploiements)
+    if (origin.endsWith(".vercel.app")) {
+      return callback(null, true);
+    }
+
+    // ou ton domaine exact prod si tu en as un
+    return callback(new Error("Not allowed by CORS"));
+  }
 }));
 
 app.use(express.json());
