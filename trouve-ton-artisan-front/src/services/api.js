@@ -16,22 +16,22 @@ const fetchAPI = async (url, options = {}) => {
 };
 
 export const getCategories = () =>
-  fetchAPI(`${API_URL}/categories`);
+  fetchAPI(`${API_URL}/api/categories`);
 
 export const getAllArtisans = () =>
-  fetchAPI(`${API_URL}/artisans/noms`);
+  fetchAPI(`${API_URL}/api/artisans/noms`);
 
 export const getArtisansByCategory = (categorieId) =>
-  fetchAPI(`${API_URL}/artisans?categorie=${categorieId}`);
+  fetchAPI(`${API_URL}/api/artisans?categorie=${categorieId}`);
 
 export const getArtisanById = (id) =>
-  fetchAPI(`${API_URL}/artisans/${id}`);
+  fetchAPI(`${API_URL}/api/artisans/${id}`);
 
 export const getTopArtisans = () =>
-  fetchAPI(`${API_URL}/artisans/top`);
+  fetchAPI(`${API_URL}/api/artisans/top`);
 
 export const sendContactForm = (id, formData) =>
-  fetchAPI(`${API_URL}/artisans/${id}/contact`, {
+  fetchAPI(`${API_URL}/api/artisans/${id}/contact`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
