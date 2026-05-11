@@ -10,6 +10,10 @@ const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
 exports.sendMail = async (options) => {
   const sendSmtpEmail = new SibApiV3Sdk.SendSmtpEmail();
 
+  if (!options.replyTo || !options.to) {
+    throw new Error("Missing email parameters");
+  }
+
   sendSmtpEmail.sender = {
     email: process.env.EMAIL_USER,
     name: "Trouve Ton Artisan",

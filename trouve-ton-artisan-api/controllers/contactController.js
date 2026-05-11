@@ -23,10 +23,6 @@ exports.sendMessage = async (req, res) => {
       });
     }
 
-    if (!options.replyTo || !options.to) {
-      throw new Error("Missing email parameters");
-    }
-
     await mailService.sendMail({
       to: process.env.EMAIL_USER,
       replyTo: cleanEmail,
