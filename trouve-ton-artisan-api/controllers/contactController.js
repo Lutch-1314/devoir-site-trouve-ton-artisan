@@ -30,6 +30,9 @@ if (!emailRegex.test(cleanEmail)) {
   });
 }
 
+console.log("ARTISAN =", artisan);
+console.log("ARTISAN EMAIL =", artisan.email);
+
  await mailService.sendMail({
   to: artisan.email,
   replyTo: cleanEmail,
