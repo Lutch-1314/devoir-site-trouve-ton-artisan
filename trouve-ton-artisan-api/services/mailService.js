@@ -32,7 +32,13 @@ Message :
 ${options.message}
 `;
 
-sendSmtpEmail.replyTo = options.replyTo;
+  // IMPORTANT : replyTo DOIT être un objet
+  sendSmtpEmail.replyTo = {
+    email: options.replyTo,
+    name: options.name,
+  };
 
-  return apiInstance.sendTransacEmail(sendSmtpEmail);
+  console.log(sendSmtpEmail);
+
+  return await apiInstance.sendTransacEmail(sendSmtpEmail);
 };
