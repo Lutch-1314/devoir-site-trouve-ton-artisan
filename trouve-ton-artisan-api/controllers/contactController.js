@@ -34,7 +34,7 @@ console.log("ARTISAN =", artisan);
 console.log("ARTISAN EMAIL =", artisan.email);
 
  await mailService.sendMail({
-  to: artisan.email,
+  to: process.env.EMAIL_USER,
   replyTo: cleanEmail,
   subject,
   name,
