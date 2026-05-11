@@ -5,10 +5,6 @@ exports.sendMessage = async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
 
-    if (!email || !email.includes("@")) {
-      return res.status(400).json({ error: "Email invalide" });
-    }
-
     const artisanId = req.params.id;
 
     const artisan = await artisanService.getArtisanById(artisanId);
@@ -17,29 +13,27 @@ exports.sendMessage = async (req, res) => {
       return res.status(404).json({ error: "Artisan introuvable" });
     }
 
-    console.log("EMAIL RECU =", email);
-console.log("TYPE =", typeof email);
+    const cleanEmail = String(email).trim().toLowerCase();
 
-const cleanEmail = String(email).trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(cleanEmail)) {
+      return res.status(400).json({
+        error: "Email invalide",
+      });
+    }
 
-if (!emailRegex.test(cleanEmail)) {
-  return res.status(400).json({
-    error: "Email invalide",
-  });
-}
+    if (!options.replyTo || !options.to) {
+      throw new Error("Missing email parameters");
+    }
 
-console.log("ARTISAN =", artisan);
-console.log("ARTISAN EMAIL =", artisan.email);
-
- await mailService.sendMail({
-  to: process.env.EMAIL_USER,
-  replyTo: cleanEmail,
-  subject,
-  name,
-  message,
-});
+    await mailService.sendMail({
+      to: process.env.EMAIL_USER,
+      replyTo: cleanEmail,
+      subject,
+      name,
+      message,
+    });
     res.status(200).json({ success: true });
   } catch (error) {
     console.error(error);
