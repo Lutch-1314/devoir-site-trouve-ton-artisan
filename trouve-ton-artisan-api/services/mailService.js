@@ -25,9 +25,7 @@ exports.sendMail = async (options) => {
 
   sendSmtpEmail.textContent = options.text;
 
-  sendSmtpEmail.replyTo = {
-    email: options.replyTo,
-  };
+sendSmtpEmail.replyTo = options.replyTo;
 
   return apiInstance.sendTransacEmail(sendSmtpEmail);
 };
