@@ -15,11 +15,7 @@ exports.sendMail = async (options) => {
     name: "Trouve Ton Artisan",
   };
 
-  sendSmtpEmail.to = [
-    {
-      email: options.to,
-    },
-  ];
+  sendSmtpEmail.to = options.to;
 
   sendSmtpEmail.subject = options.subject;
 
