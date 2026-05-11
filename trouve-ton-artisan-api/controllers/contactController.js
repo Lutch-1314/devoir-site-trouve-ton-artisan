@@ -31,31 +31,11 @@ if (!emailRegex.test(cleanEmail)) {
 }
 
  await mailService.sendMail({
-  sender: {
-    email: process.env.EMAIL_USER,
-    name: "TrouveTonArtisan",
-  },
-
-  to: [
-    {
-      email: artisan.email,
-    },
-  ],
-
-  replyTo: {
-    email: cleanEmail,
-    name: String(name).trim(),
-  },
-
-  subject: subject,
-
-  textContent: `
-Nom: ${name}
-Email: ${cleanEmail}
-
-Message:
-${message}
-  `,
+  to: artisan.email,
+  replyTo: cleanEmail,
+  subject,
+  name,
+  message,
 });
     res.status(200).json({ success: true });
   } catch (error) {

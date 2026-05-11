@@ -19,7 +19,14 @@ exports.sendMail = async (options) => {
 
   sendSmtpEmail.subject = options.subject;
 
-  sendSmtpEmail.textContent = options.text;
+   sendSmtpEmail.textContent = `
+Nom : ${options.name}
+
+Email : ${options.replyTo}
+
+Message :
+${options.message}
+`;
 
 sendSmtpEmail.replyTo = options.replyTo;
 
