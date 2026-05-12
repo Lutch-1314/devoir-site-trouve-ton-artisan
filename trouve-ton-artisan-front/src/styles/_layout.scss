@@ -1,5 +1,9 @@
 @use "./variables" as *;
 
+:root {
+  --header-height: clamp(96px, 13.5vw + 45px, 240px);
+}
+
 .default-container {
   width: 100%;
   margin-inline: auto;
