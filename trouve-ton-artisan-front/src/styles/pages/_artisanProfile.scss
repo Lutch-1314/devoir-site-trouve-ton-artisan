@@ -4,7 +4,7 @@
   width: 100%;
   height: clamp(250px, 40vh, 500px);
   overflow: hidden;
-
+border-radius: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -13,9 +13,7 @@
     max-height: 300px;
   }
 
-  @media (min-width: $desktop) {
-    width: 50%;
-  }
+ 
 }
 
 .artisan-img {
