@@ -11,7 +11,6 @@ import artisanIcon from "../assets/icons/artisan.svg";
 import locationIcon from "../assets/icons/location.svg";
 import websiteIcon from "../assets/icons/website.svg";
 
-
 const ArtisanProfile = () => {
   const { id } = useParams();
   const { artisan, loading } = useArtisanById(id);
@@ -40,9 +39,11 @@ const ArtisanProfile = () => {
           <div className="artisan-card-profile">
             <div className="artisan-img-wrapper">
               <img
-                src={`${API_URL}/images/artisans/${id}.jpg`}
+                src={`${API_URL}/images/artisans/${id}.webp`}
                 alt={`Photo de l'artisan ${artisan.nom}`}
                 className="artisan-img"
+                width="800"
+                height="500"
               />
             </div>
             <div className="artisan-profile-infos">

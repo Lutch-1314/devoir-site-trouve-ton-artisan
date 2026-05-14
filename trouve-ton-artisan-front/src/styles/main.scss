@@ -23,21 +23,24 @@
 
 @font-face {
   font-family: "Graphik";
-  src: url("../assets/fonts/Graphik-Regular-Trial.otf") format("opentype");
+  src: url("../assets/fonts/Graphik-Regular-Trial.woff2") format("woff2");
+  font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Graphik";
-  src: url("../assets/fonts/Graphik-Bold-Trial.otf") format("opentype");
+  src: url("../assets/fonts/Graphik-Bold-Trial.woff2") format("woff2");
+  font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Graphik";
-  src: url("../assets/fonts/Graphik-Black-Trial.otf") format("opentype");
+  src: url("../assets/fonts/Graphik-Black-Trial.woff2") format("woff2");
+  font-display: swap;
   font-weight: 900;
   font-style: normal;
 }

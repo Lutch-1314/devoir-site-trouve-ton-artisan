@@ -43,17 +43,25 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min
   max: 100,
   message: {
-    error: "Trop de requêtes, réessaie plus tard.",
+    error: "Trop de requêtes, réessayez plus tard.",
   },
 });
 
 app.use("/api", limiter);
+
+app.use("/api", (req, res, next) => {
+  res.set("Cache-Control", "public, max-age=60");
+  next();
+});
 
 const artisanRoutes = require("./routes/artisanRoutes");
 app.use("/api/artisans", artisanRoutes);
 
 const categorieRoutes = require("./routes/categorieRoutes");
 app.use("/api/categories", categorieRoutes);
+
+const homeRoutes = require("./routes/homeRoutes");
+app.use("/api/home", homeRoutes);
 
 app.get("/", (req, res) => {
   res.send("API fonctionne !");

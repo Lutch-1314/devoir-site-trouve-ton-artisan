@@ -20,7 +20,9 @@
   }
 
   .logo {
-    width: clamp(200px, 25vw, 400px);
+    width: clamp(200px, 25vw, 500px);
     height: auto;
+    aspect-ratio: 5 / 3;
+    overflow: hidden;
   }
 }

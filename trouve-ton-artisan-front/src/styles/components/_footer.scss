@@ -4,6 +4,7 @@
   color: white;
   background-color: $blue;
   font-size: clamp(0.875rem, 2vw, 1.375rem);
+  min-height: 400px;
 
   a {
     color: white;
