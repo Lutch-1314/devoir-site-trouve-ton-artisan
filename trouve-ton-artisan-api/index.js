@@ -8,11 +8,15 @@ const helmet = require("helmet");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+//* Helmet ajoute automatiquement plusieurs en-têtes HTTP de sécurité pour protéger l'application contre les vulnérabilités courantes.
+
 app.use(
   helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" }
   })
 );
+
+//* CORS : Configure les règles de partage des ressources entre origines pour permettre à l'application front-end d'accéder à l'API tout en limitant les accès non autorisés.
 
 app.use(
   cors({
@@ -38,6 +42,8 @@ sequelize
   .catch((err) => console.error("Erreur de connexion :", err));
 
 app.use("/images", express.static("public/images"));
+
+//* Limiteur de taux : Limite le nombre de requêtes qu'un client peut faire à l'API dans une période donnée pour prévenir les abus et les attaques par déni de service (DoS).
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 min
