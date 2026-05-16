@@ -15,20 +15,16 @@ const fetchAPI = async (url, options = {}) => {
   return res.json();
 };
 
-export const getCategories = () =>
-  fetchAPI(`${API_URL}/api/categories`);
+export const getCategories = () => fetchAPI(`${API_URL}/api/categories`);
 
-export const getAllArtisans = () =>
-  fetchAPI(`${API_URL}/api/artisans/noms`);
+export const getAllArtisans = () => fetchAPI(`${API_URL}/api/artisans/noms`);
 
 export const getArtisansByCategory = (categorieId) =>
   fetchAPI(`${API_URL}/api/artisans?categorie=${categorieId}`);
 
-export const getArtisanById = (id) =>
-  fetchAPI(`${API_URL}/api/artisans/${id}`);
+export const getArtisanById = (id) => fetchAPI(`${API_URL}/api/artisans/${id}`);
 
-export const getTopArtisans = () =>
-  fetchAPI(`${API_URL}/api/artisans/top`);
+export const getTopArtisans = () => fetchAPI(`${API_URL}/api/artisans/top`);
 
 export const sendContactForm = (id, formData) =>
   fetchAPI(`${API_URL}/api/artisans/${id}/contact`, {

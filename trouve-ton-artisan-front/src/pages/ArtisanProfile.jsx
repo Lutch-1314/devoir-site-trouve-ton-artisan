@@ -171,10 +171,8 @@ const ArtisanProfile = () => {
               </p>
             )}
 
-            {status === "error" && (
-              <p className="form-error" role="status" aria-live="polite">
-                Une erreur est survenue.
-              </p>
+            {status && status !== "success" && (
+              <p className="form-error">{status}</p>
             )}
 
             <Button variant="blue" type="submit">

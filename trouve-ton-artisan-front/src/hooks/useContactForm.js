@@ -21,12 +21,22 @@ const useContactForm = (id) => {
     try {
       setLoading(true);
 
-      await sendContactForm(id, formData);
+      const res = await sendContactForm(id, formData);
+      const data = await res.json();
+
+      if (!res.ok) {
+        if (data.error === "Email invalide") {
+          setStatus("Adresse email invalide ❌");
+        } else {
+          setStatus("Une erreur est survenue, réessayez plus tard.");
+        }
+        return;
+      }
 
       setStatus("success");
       form.reset();
     } catch {
-      setStatus("error");
+      setStatus("Erreur réseau, réessayez plus tard.");
     } finally {
       setLoading(false);
     }
