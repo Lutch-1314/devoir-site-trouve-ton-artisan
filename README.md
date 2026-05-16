@@ -69,15 +69,23 @@ DB_PASSWORD=votre_mot_de_passe
 DB_HOST=localhost
 DB_PORT=3306
 
-EMAIL_USER=votre_email@gmail.com
-EMAIL_PASS=votre_mot_de_passe_d_application
+EMAIL_USER=votre_email_expediteur
+BREVO_API_KEY=votre_cle_api_brevo
 
 FRONTEND_URL=http://localhost:5173
 ```
 
-EMAIL_PASS correspond à un mot de passe d’application Google généré depuis votre compte Gmail.
-Exemple de configuration avec Gmail.
-Un autre service SMTP peut être utilisé en adaptant la configuration Nodemailer.
+BREVO_API_KEY correspond à une clé API générée depuis votre compte Brevo.
+
+Pour l’obtenir :
+1. Créer un compte sur Brevo
+2. Aller dans SMTP & API
+3. Générer une nouvelle clé API
+4. Copier cette clé dans la variable BREVO_API_KEY
+
+EMAIL_USER correspond à l’adresse email utilisée comme expéditeur.
+
+Un autre service d’envoi d’emails peut être utilisé en adaptant la configuration du service d’envoi.
 
 **Créer une base de données MySQL :**
 

@@ -6,6 +6,7 @@ const rateLimit = require("express-rate-limit");
 const helmet = require("helmet");
 
 const app = express();
+app.set("trust proxy", 1);
 const PORT = process.env.PORT || 3000;
 
 //* Helmet ajoute automatiquement plusieurs en-têtes HTTP de sécurité pour protéger l'application contre les vulnérabilités courantes.
