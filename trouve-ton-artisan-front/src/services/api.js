@@ -26,11 +26,12 @@ export const getArtisanById = (id) => fetchAPI(`${API_URL}/api/artisans/${id}`);
 
 export const getTopArtisans = () => fetchAPI(`${API_URL}/api/artisans/top`);
 
-export const sendContactForm = (id, formData) =>
-  fetchAPI(`${API_URL}/api/artisans/${id}/contact`, {
+export const sendContactForm = async (id, formData) => {
+  return fetch(`${API_URL}/api/artisans/${id}/contact`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(formData),
   });
+};

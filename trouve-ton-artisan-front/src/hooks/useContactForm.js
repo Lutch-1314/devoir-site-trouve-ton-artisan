@@ -26,7 +26,7 @@ const useContactForm = (id) => {
 
       if (!res.ok) {
         if (data.error === "Email invalide") {
-          setStatus("Adresse email invalide ❌");
+          setStatus("Adresse email invalide");
         } else {
           setStatus("Une erreur est survenue, réessayez plus tard.");
         }
